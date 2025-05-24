@@ -1,5 +1,0 @@
-/home/brad/programming/c/dft_calc/build/CMakeFiles/gen_index.dir
-/home/brad/programming/c/dft_calc/build/CMakeFiles/gen_twiddle.dir
-/home/brad/programming/c/dft_calc/build/CMakeFiles/dft_util.dir
-/home/brad/programming/c/dft_calc/build/CMakeFiles/edit_cache.dir
-/home/brad/programming/c/dft_calc/build/CMakeFiles/rebuild_cache.dir

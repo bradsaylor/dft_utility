@@ -1,0 +1,44 @@
+# Build artifacts
+/build/
+/bin/
+/obj/
+/out/
+*.o
+*.a
+*.so
+*.exe
+*.dll
+*.dylib
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Backup and temp files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Editor settings (optional but common)
+.vscode/
+.idea/
+
+# Test outputs or generated data
+test_output.txt
+*.log
+*.dat
+*.bin
+
+# Docs generated files
+/docs/html/
+/docs/latex/
+/docs/*.aux
+/docs/*.toc
+
+# Archive or release bundles
+*.zip
+*.tar.gz
