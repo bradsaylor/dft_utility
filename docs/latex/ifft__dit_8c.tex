@@ -1,0 +1,87 @@
+\doxysection{/home/brad/programming/c/dft\+\_\+calc/src/ifft\+\_\+dit.c File Reference}
+\hypertarget{ifft__dit_8c}{}\label{ifft__dit_8c}\index{/home/brad/programming/c/dft\_calc/src/ifft\_dit.c@{/home/brad/programming/c/dft\_calc/src/ifft\_dit.c}}
+
+
+Compute inverse FFT by using forward FFT decimation in time algorithm.  
+
+
+{\ttfamily \#include "{}../include/ifft\+\_\+dit.\+h"{}}\newline
+{\ttfamily \#include $<$complex.\+h$>$}\newline
+{\ttfamily \#include "{}../include/fft\+\_\+dit.\+h"{}}\newline
+Include dependency graph for ifft\+\_\+dit.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{ifft__dit_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ifft__dit_8c_ac85b8bf2da3e78f928a07610bf7cf538}{ifft\+\_\+dit}} (double complex \texorpdfstring{$\ast$}{*}signal, double complex \texorpdfstring{$\ast$}{*}signal\+\_\+out, int N\+\_\+in, int N\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Calculates i\+DFT via FFT decimation in time algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ifft__dit_8c_aa160b2f370f366649d4037139e21fae0}{conjugate\+\_\+signal}} (double complex \texorpdfstring{$\ast$}{*}signal, int N)
+\begin{DoxyCompactList}\small\item\em Return conjugate of signal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute inverse FFT by using forward FFT decimation in time algorithm. 
+
+\begin{DoxyAuthor}{Author}
+Brad Saylor 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/22
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ifft__dit_8c_aa160b2f370f366649d4037139e21fae0}\label{ifft__dit_8c_aa160b2f370f366649d4037139e21fae0} 
+\index{ifft\_dit.c@{ifft\_dit.c}!conjugate\_signal@{conjugate\_signal}}
+\index{conjugate\_signal@{conjugate\_signal}!ifft\_dit.c@{ifft\_dit.c}}
+\doxysubsubsection{\texorpdfstring{conjugate\_signal()}{conjugate\_signal()}}
+{\footnotesize\ttfamily int conjugate\+\_\+signal (\begin{DoxyParamCaption}\item[{double complex \texorpdfstring{$\ast$}{*}}]{signal,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Return conjugate of signal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal} & Input signal \\
+\hline
+{\em N} & Size of input signal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{ifft__dit_8c_ac85b8bf2da3e78f928a07610bf7cf538}\label{ifft__dit_8c_ac85b8bf2da3e78f928a07610bf7cf538} 
+\index{ifft\_dit.c@{ifft\_dit.c}!ifft\_dit@{ifft\_dit}}
+\index{ifft\_dit@{ifft\_dit}!ifft\_dit.c@{ifft\_dit.c}}
+\doxysubsubsection{\texorpdfstring{ifft\_dit()}{ifft\_dit()}}
+{\footnotesize\ttfamily int ifft\+\_\+dit (\begin{DoxyParamCaption}\item[{double complex \texorpdfstring{$\ast$}{*}}]{signal,  }\item[{double complex \texorpdfstring{$\ast$}{*}}]{signal\+\_\+out,  }\item[{int}]{N\+\_\+in,  }\item[{int}]{N\+\_\+out }\end{DoxyParamCaption})}
+
+
+
+Calculates i\+DFT via FFT decimation in time algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal} & Input signal \\
+\hline
+{\em signal\+\_\+out} & Output signal \\
+\hline
+{\em N} & Size of output sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

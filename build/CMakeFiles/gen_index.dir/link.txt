@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/gen_index.dir/tools/make_fft_reverse_index_LUT.c.o -o gen_index  -lm 

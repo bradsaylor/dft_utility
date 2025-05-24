@@ -1,0 +1,74 @@
+\doxysection{/home/brad/programming/c/dft\+\_\+calc/src/make\+\_\+fft\+\_\+dit\+\_\+lut.c File Reference}
+\hypertarget{make__fft__dit__lut_8c}{}\label{make__fft__dit__lut_8c}\index{/home/brad/programming/c/dft\_calc/src/make\_fft\_dit\_lut.c@{/home/brad/programming/c/dft\_calc/src/make\_fft\_dit\_lut.c}}
+
+
+Creates C header file lookup table of bit reversed indexes for fft algorithm.  
+
+
+{\ttfamily \#include "{}../include/make\+\_\+fft\+\_\+dit\+\_\+lut.\+h"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for make\+\_\+fft\+\_\+dit\+\_\+lut.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{make__fft__dit__lut_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{make__fft__dit__lut_8c_a57ae1251769ec9908eae547c5f90b486}{bit\+\_\+reverse}} (uint32\+\_\+t num, int N)
+\begin{DoxyCompactList}\small\item\em Reverses bit sequence of a number represented by N bits. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{make__fft__dit__lut_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Creates C header file lookup table of bit reversed indexes for fft algorithm. 
+
+\begin{DoxyAuthor}{Author}
+Brad Saylor 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/19
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{make__fft__dit__lut_8c_a57ae1251769ec9908eae547c5f90b486}\label{make__fft__dit__lut_8c_a57ae1251769ec9908eae547c5f90b486} 
+\index{make\_fft\_dit\_lut.c@{make\_fft\_dit\_lut.c}!bit\_reverse@{bit\_reverse}}
+\index{bit\_reverse@{bit\_reverse}!make\_fft\_dit\_lut.c@{make\_fft\_dit\_lut.c}}
+\doxysubsubsection{\texorpdfstring{bit\_reverse()}{bit\_reverse()}}
+{\footnotesize\ttfamily uint32\+\_\+t bit\+\_\+reverse (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Reverses bit sequence of a number represented by N bits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Number to be reversed as uint32\+\_\+t \\
+\hline
+{\em N} & Number of bits in binary number representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reversed representation as uint32\+\_\+t 
+\end{DoxyReturn}
+\Hypertarget{make__fft__dit__lut_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{make__fft__dit__lut_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{make\_fft\_dit\_lut.c@{make\_fft\_dit\_lut.c}!main@{main}}
+\index{main@{main}!make\_fft\_dit\_lut.c@{make\_fft\_dit\_lut.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

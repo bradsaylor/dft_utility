@@ -1,0 +1,21 @@
+\doxysection{fft\+\_\+dit.\+h}
+\hypertarget{fft__dit_8h_source}{}\label{fft__dit_8h_source}\index{/home/brad/programming/c/dft\_calc/include/fft\_dit.h@{/home/brad/programming/c/dft\_calc/include/fft\_dit.h}}
+\mbox{\hyperlink{fft__dit_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FFT\_DIT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FFT\_DIT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <complex.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fft__dit_8h_aa0f5c1d3d39a012401b1d50d251e35c5}{fft\_dit}}(\textcolor{keywordtype}{double}\ complex\ *signal,\ \textcolor{keywordtype}{double}\ complex\ *signal\_out,\ \textcolor{keywordtype}{int}\ N);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fft__dit_8h_a367f4c4795ff5b9faf405b68c1c52d0a}{calc\_decimation\_step}}(\textcolor{keywordtype}{double}\ complex\ *sequence,\ \textcolor{keywordtype}{int}\ num\_decims,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ decim\_step,\ \textcolor{keywordtype}{int}\ N);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fft__dit_8h_a9d23a771a95571824a14a285cb43a9ea}{calc\_butterfly}}(\textcolor{keywordtype}{double}\ complex\ *btrfly\_top\_element,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ complex\ *btrfly\_bottom\_element,\ \textcolor{keywordtype}{int}\ num\_decims,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ WN\_index);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ FFT\_DIT\_H}}
+
+\end{DoxyCode}

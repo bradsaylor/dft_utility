@@ -1,0 +1,67 @@
+\doxysection{/home/brad/programming/c/dft\+\_\+calc/include/dft.h File Reference}
+\hypertarget{dft_8h}{}\label{dft_8h}\index{/home/brad/programming/c/dft\_calc/include/dft.h@{/home/brad/programming/c/dft\_calc/include/dft.h}}
+{\ttfamily \#include $<$complex.\+h$>$}\newline
+Include dependency graph for dft.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{dft_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{dft_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double complex \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dft_8h_adf55a2d385bbaf2d7e27394c15fc83b8}{calloc\+\_\+output\+\_\+pow2}} (int N, int \texorpdfstring{$\ast$}{*}new\+\_\+length)
+\begin{DoxyCompactList}\small\item\em Allocates output array for for DFT results, length is 2\texorpdfstring{$^\wedge$}{\string^}v for the nearest power of two greater than N. \end{DoxyCompactList}\item 
+double complex \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dft_8h_a78593809eed625d3384a352b3c6945e3}{calloc\+\_\+output\+\_\+N}} (int N)
+\begin{DoxyCompactList}\small\item\em Allocates output array for DFT results, length is same as input N. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{dft_8h_a78593809eed625d3384a352b3c6945e3}\label{dft_8h_a78593809eed625d3384a352b3c6945e3} 
+\index{dft.h@{dft.h}!calloc\_output\_N@{calloc\_output\_N}}
+\index{calloc\_output\_N@{calloc\_output\_N}!dft.h@{dft.h}}
+\doxysubsubsection{\texorpdfstring{calloc\_output\_N()}{calloc\_output\_N()}}
+{\footnotesize\ttfamily double complex \texorpdfstring{$\ast$}{*} calloc\+\_\+output\+\_\+N (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Allocates output array for DFT results, length is same as input N. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Length of input sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\texorpdfstring{$\ast$}{*} Returns allocated sequence 
+\end{DoxyReturn}
+\Hypertarget{dft_8h_adf55a2d385bbaf2d7e27394c15fc83b8}\label{dft_8h_adf55a2d385bbaf2d7e27394c15fc83b8} 
+\index{dft.h@{dft.h}!calloc\_output\_pow2@{calloc\_output\_pow2}}
+\index{calloc\_output\_pow2@{calloc\_output\_pow2}!dft.h@{dft.h}}
+\doxysubsubsection{\texorpdfstring{calloc\_output\_pow2()}{calloc\_output\_pow2()}}
+{\footnotesize\ttfamily double complex \texorpdfstring{$\ast$}{*} calloc\+\_\+output\+\_\+pow2 (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int \texorpdfstring{$\ast$}{*}}]{new\+\_\+length }\end{DoxyParamCaption})}
+
+
+
+Allocates output array for for DFT results, length is 2\texorpdfstring{$^\wedge$}{\string^}v for the nearest power of two greater than N. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Length of input sequence \\
+\hline
+{\em new\+\_\+length} & Length of allocated sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\texorpdfstring{$\ast$}{*} Returns allocated sequence 
+\end{DoxyReturn}

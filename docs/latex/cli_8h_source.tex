@@ -1,0 +1,31 @@
+\doxysection{cli.\+h}
+\hypertarget{cli_8h_source}{}\label{cli_8h_source}\index{/home/brad/programming/c/dft\_calc/include/cli.h@{/home/brad/programming/c/dft\_calc/include/cli.h}}
+\mbox{\hyperlink{cli_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CLI\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CLI\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00009\ \ \ \mbox{\hyperlink{cli_8h_a4db69d3373ffa5ccb87a712c91578507afde9d0db15f1a108c7ad19a4dc0622cb}{ALG\_MODE\_UNKNOWN}},}
+\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{cli_8h_a4db69d3373ffa5ccb87a712c91578507a396731635dfcb4c88d3832578e8674ec}{ALG\_MODE\_DIRECT}},}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{cli_8h_a4db69d3373ffa5ccb87a712c91578507a59ba1da1de6c07e8b7599fbddf6218e8}{ALG\_MODE\_FFT}},}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{cli_8h_a4db69d3373ffa5ccb87a712c91578507a45bfce5fb203c95383081ac78914ef78}{ALG\_MODE\_IFFT}},}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{cli_8h_a4db69d3373ffa5ccb87a712c91578507a491068cfe2f06017138d096025dbcbd6}{ALG\_MODE\_GOERTZEL}},}
+\DoxyCodeLine{00014\ \}\ \mbox{\hyperlink{cli_8h_a4db69d3373ffa5ccb87a712c91578507}{algorithmMode}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1ca7825ae50ec73e929c7a9345d1cc86184}{OUTPUT\_UNKNOWN}},\ \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1ca02a066456d3edff83944e30f1482b8bc}{OUTPUT\_TXT}},\ \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed}{OUTPUT\_CSV}},\ \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe}{OUTPUT\_BIN}}\ \}\ \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1c}{outputMode}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{char}\ input\_file\_name[50];}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{char}\ output\_file\_name[50];}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{cli_8h_a4db69d3373ffa5ccb87a712c91578507}{algorithmMode}}\ \mbox{\hyperlink{structConfiguration_aad363fb5e85b105f441ba75017da4b67}{algorithm\_mode}};}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1c}{outputMode}}\ \mbox{\hyperlink{structConfiguration_a035248a395b90de37a0578cbc3611dc7}{output\_mode}};}
+\DoxyCodeLine{00027\ \}\ \mbox{\hyperlink{structConfiguration}{Configuration}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{cli_8h_a17e060b24e3169e3fadd78ac634e9e26}{parse\_cli}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[],\ \mbox{\hyperlink{structConfiguration}{Configuration}}\ *config);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{cli_8h_a8bc6f5dbc990acb8ea9724ba99d8cff9}{print\_usage\_help}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ CLI\_H}}
+
+\end{DoxyCode}

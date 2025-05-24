@@ -1,0 +1,101 @@
+\doxysection{/home/brad/programming/c/dft\+\_\+calc/include/fft\+\_\+dit.h File Reference}
+\hypertarget{fft__dit_8h}{}\label{fft__dit_8h}\index{/home/brad/programming/c/dft\_calc/include/fft\_dit.h@{/home/brad/programming/c/dft\_calc/include/fft\_dit.h}}
+{\ttfamily \#include $<$complex.\+h$>$}\newline
+Include dependency graph for fft\+\_\+dit.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{fft__dit_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fft__dit_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{fft__dit_8h_aa0f5c1d3d39a012401b1d50d251e35c5}{fft\+\_\+dit}} (double complex \texorpdfstring{$\ast$}{*}signal, double complex \texorpdfstring{$\ast$}{*}signal\+\_\+out, int N)
+\begin{DoxyCompactList}\small\item\em Calculates DFT via FFT decimation in time algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fft__dit_8h_a367f4c4795ff5b9faf405b68c1c52d0a}{calc\+\_\+decimation\+\_\+step}} (double complex \texorpdfstring{$\ast$}{*}sequence, int num\+\_\+decims, int decim\+\_\+step, int N)
+\begin{DoxyCompactList}\small\item\em Calculates one decimation step of FFT algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fft__dit_8h_a9d23a771a95571824a14a285cb43a9ea}{calc\+\_\+butterfly}} (double complex \texorpdfstring{$\ast$}{*}btrfly\+\_\+top\+\_\+element, double complex \texorpdfstring{$\ast$}{*}btrfly\+\_\+bottom\+\_\+element, int num\+\_\+decims, int WN\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Calculates single butterfly step of FFT algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fft__dit_8h_a9d23a771a95571824a14a285cb43a9ea}\label{fft__dit_8h_a9d23a771a95571824a14a285cb43a9ea} 
+\index{fft\_dit.h@{fft\_dit.h}!calc\_butterfly@{calc\_butterfly}}
+\index{calc\_butterfly@{calc\_butterfly}!fft\_dit.h@{fft\_dit.h}}
+\doxysubsubsection{\texorpdfstring{calc\_butterfly()}{calc\_butterfly()}}
+{\footnotesize\ttfamily int calc\+\_\+butterfly (\begin{DoxyParamCaption}\item[{double complex \texorpdfstring{$\ast$}{*}}]{btrfly\+\_\+top\+\_\+element,  }\item[{double complex \texorpdfstring{$\ast$}{*}}]{btrfly\+\_\+bottom\+\_\+element,  }\item[{int}]{num\+\_\+decims,  }\item[{int}]{WN\+\_\+index }\end{DoxyParamCaption})}
+
+
+
+Calculates single butterfly step of FFT algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em btrfly\+\_\+top\+\_\+element} & Top half element of butterfly \\
+\hline
+{\em btrfly\+\_\+bottom\+\_\+element} & Bottom half element of butterfly \\
+\hline
+{\em num\+\_\+decims} & Total number of decimation steps \\
+\hline
+{\em WN\+\_\+index} & Lookup index for twiddle factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{fft__dit_8h_a367f4c4795ff5b9faf405b68c1c52d0a}\label{fft__dit_8h_a367f4c4795ff5b9faf405b68c1c52d0a} 
+\index{fft\_dit.h@{fft\_dit.h}!calc\_decimation\_step@{calc\_decimation\_step}}
+\index{calc\_decimation\_step@{calc\_decimation\_step}!fft\_dit.h@{fft\_dit.h}}
+\doxysubsubsection{\texorpdfstring{calc\_decimation\_step()}{calc\_decimation\_step()}}
+{\footnotesize\ttfamily int calc\+\_\+decimation\+\_\+step (\begin{DoxyParamCaption}\item[{double complex \texorpdfstring{$\ast$}{*}}]{sequence,  }\item[{int}]{num\+\_\+decims,  }\item[{int}]{decim\+\_\+step,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Calculates one decimation step of FFT algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & Intermediate data sequence \\
+\hline
+{\em num\+\_\+decims} & Total number of decimation steps \\
+\hline
+{\em decim\+\_\+step} & Current decimation step \\
+\hline
+{\em N} & Size of output sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{fft__dit_8h_aa0f5c1d3d39a012401b1d50d251e35c5}\label{fft__dit_8h_aa0f5c1d3d39a012401b1d50d251e35c5} 
+\index{fft\_dit.h@{fft\_dit.h}!fft\_dit@{fft\_dit}}
+\index{fft\_dit@{fft\_dit}!fft\_dit.h@{fft\_dit.h}}
+\doxysubsubsection{\texorpdfstring{fft\_dit()}{fft\_dit()}}
+{\footnotesize\ttfamily int fft\+\_\+dit (\begin{DoxyParamCaption}\item[{double complex \texorpdfstring{$\ast$}{*}}]{signal,  }\item[{double complex \texorpdfstring{$\ast$}{*}}]{signal\+\_\+out,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Calculates DFT via FFT decimation in time algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal} & \\
+\hline
+{\em signal\+\_\+out} & \\
+\hline
+{\em N} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

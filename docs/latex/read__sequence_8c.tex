@@ -1,0 +1,65 @@
+\doxysection{/home/brad/programming/c/dft\+\_\+calc/src/read\+\_\+sequence.c File Reference}
+\hypertarget{read__sequence_8c}{}\label{read__sequence_8c}\index{/home/brad/programming/c/dft\_calc/src/read\_sequence.c@{/home/brad/programming/c/dft\_calc/src/read\_sequence.c}}
+
+
+Read discrete signal from file.  
+
+
+{\ttfamily \#include "{}../include/read\+\_\+sequence.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for read\+\_\+sequence.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{read__sequence_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double complex \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{read__sequence_8c_a7ed6decc071a03570531be54188711cf}{read\+\_\+sequence}} (const char \texorpdfstring{$\ast$}{*}filename, int max\+\_\+len, int \texorpdfstring{$\ast$}{*}len)
+\begin{DoxyCompactList}\small\item\em Reads a complex discrete-\/time signal from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Read discrete signal from file. 
+
+\begin{DoxyAuthor}{Author}
+Brad Saylor 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/19
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{read__sequence_8c_a7ed6decc071a03570531be54188711cf}\label{read__sequence_8c_a7ed6decc071a03570531be54188711cf} 
+\index{read\_sequence.c@{read\_sequence.c}!read\_sequence@{read\_sequence}}
+\index{read\_sequence@{read\_sequence}!read\_sequence.c@{read\_sequence.c}}
+\doxysubsubsection{\texorpdfstring{read\_sequence()}{read\_sequence()}}
+{\footnotesize\ttfamily double complex \texorpdfstring{$\ast$}{*} read\+\_\+sequence (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{int}]{max\+\_\+len,  }\item[{int \texorpdfstring{$\ast$}{*}}]{len }\end{DoxyParamCaption})}
+
+
+
+Reads a complex discrete-\/time signal from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of data file. \\
+\hline
+{\em max\+\_\+len} & User defined maximum sequence length. \\
+\hline
+{\em len} & User provided int\texorpdfstring{$\ast$}{*} to store length returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for freeing the allocated memory. 
+\end{DoxyWarning}

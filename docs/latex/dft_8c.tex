@@ -1,0 +1,101 @@
+\doxysection{/home/brad/programming/c/dft\+\_\+calc/src/dft.c File Reference}
+\hypertarget{dft_8c}{}\label{dft_8c}\index{/home/brad/programming/c/dft\_calc/src/dft.c@{/home/brad/programming/c/dft\_calc/src/dft.c}}
+
+
+Compute DFT from data file by various methods.  
+
+
+{\ttfamily \#include "{}../include/dft.\+h"{}}\newline
+{\ttfamily \#include $<$complex.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}../include/cli.\+h"{}}\newline
+{\ttfamily \#include "{}../include/direct\+\_\+dft.\+h"{}}\newline
+{\ttfamily \#include "{}../include/fft\+\_\+dit.\+h"{}}\newline
+{\ttfamily \#include "{}../include/gtzl\+\_\+dft.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ifft\+\_\+dit.\+h"{}}\newline
+{\ttfamily \#include "{}../include/output.\+h"{}}\newline
+{\ttfamily \#include "{}../include/read\+\_\+sequence.\+h"{}}\newline
+Include dependency graph for dft.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dft_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{dft_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\item 
+double complex \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dft_8c_adf55a2d385bbaf2d7e27394c15fc83b8}{calloc\+\_\+output\+\_\+pow2}} (int N, int \texorpdfstring{$\ast$}{*}new\+\_\+length)
+\begin{DoxyCompactList}\small\item\em Allocates output array for for DFT results, length is 2\texorpdfstring{$^\wedge$}{\string^}v for the nearest power of two greater than N. \end{DoxyCompactList}\item 
+double complex \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dft_8c_a78593809eed625d3384a352b3c6945e3}{calloc\+\_\+output\+\_\+N}} (int N)
+\begin{DoxyCompactList}\small\item\em Allocates output array for DFT results, length is same as input N. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compute DFT from data file by various methods. 
+
+\begin{DoxyAuthor}{Author}
+Brad Saylor 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/19
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{dft_8c_a78593809eed625d3384a352b3c6945e3}\label{dft_8c_a78593809eed625d3384a352b3c6945e3} 
+\index{dft.c@{dft.c}!calloc\_output\_N@{calloc\_output\_N}}
+\index{calloc\_output\_N@{calloc\_output\_N}!dft.c@{dft.c}}
+\doxysubsubsection{\texorpdfstring{calloc\_output\_N()}{calloc\_output\_N()}}
+{\footnotesize\ttfamily double complex \texorpdfstring{$\ast$}{*} calloc\+\_\+output\+\_\+N (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Allocates output array for DFT results, length is same as input N. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Length of input sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\texorpdfstring{$\ast$}{*} Returns allocated sequence 
+\end{DoxyReturn}
+\Hypertarget{dft_8c_adf55a2d385bbaf2d7e27394c15fc83b8}\label{dft_8c_adf55a2d385bbaf2d7e27394c15fc83b8} 
+\index{dft.c@{dft.c}!calloc\_output\_pow2@{calloc\_output\_pow2}}
+\index{calloc\_output\_pow2@{calloc\_output\_pow2}!dft.c@{dft.c}}
+\doxysubsubsection{\texorpdfstring{calloc\_output\_pow2()}{calloc\_output\_pow2()}}
+{\footnotesize\ttfamily double complex \texorpdfstring{$\ast$}{*} calloc\+\_\+output\+\_\+pow2 (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int \texorpdfstring{$\ast$}{*}}]{new\+\_\+length }\end{DoxyParamCaption})}
+
+
+
+Allocates output array for for DFT results, length is 2\texorpdfstring{$^\wedge$}{\string^}v for the nearest power of two greater than N. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Length of input sequence \\
+\hline
+{\em new\+\_\+length} & Length of allocated sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\texorpdfstring{$\ast$}{*} Returns allocated sequence 
+\end{DoxyReturn}
+\Hypertarget{dft_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{dft_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{dft.c@{dft.c}!main@{main}}
+\index{main@{main}!dft.c@{dft.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+

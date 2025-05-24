@@ -1,0 +1,7 @@
+<map id="/home/brad/programming/c/dft_calc/include/read_sequence.h" name="/home/brad/programming/c/dft_calc/include/read_sequence.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="120,5,308,60"/>
+<area shape="rect" id="Node000002" href="$dft_8c.html" title="Compute DFT from data file by various methods." alt="" coords="5,108,193,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,71,124,110,121,106,169,67"/>
+<area shape="rect" id="Node000003" href="$read__sequence_8c.html" title="Read discrete signal from file." alt="" coords="217,108,440,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,67,307,106,304,110,255,71"/>
+</map>
