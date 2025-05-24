@@ -16,8 +16,6 @@ A lightweight C library and command-line utility for computing the Discrete Four
 
 ## Project Structure
 
-## Project Structure
-
 ```text
 dft_util/
 ├── CMakeLists.txt          # CMake build configuration
