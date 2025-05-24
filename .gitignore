@@ -42,3 +42,4 @@ test_output.txt
 # Archive or release bundles
 *.zip
 *.tar.gz
+.vscode/
