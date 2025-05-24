@@ -43,3 +43,4 @@ test_output.txt
 *.zip
 *.tar.gz
 .vscode/
+archive/
