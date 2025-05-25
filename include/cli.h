@@ -19,11 +19,19 @@ typedef enum {
  */
 typedef enum { OUTPUT_UNKNOWN, OUTPUT_TXT, OUTPUT_CSV, OUTPUT_BIN } outputMode;
 
+typedef enum {
+  WINDOW_HANNING,
+  WINDOW_HAMMING,
+  WINDOW_KAISER,
+  WINDOW_BLACKMAN_HARRIS
+} windowMode;
+
 typedef struct {
   char input_file_name[50];
   char output_file_name[50];
   algorithmMode algorithm_mode;
   outputMode output_mode;
+  windowMode window_mode;
 } Configuration;
 
 /**

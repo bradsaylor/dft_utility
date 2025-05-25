@@ -23,6 +23,7 @@
 #include "../include/ifft_dit.h"
 #include "../include/output.h"
 #include "../include/read_sequence.h"
+#include "../include/window.h"
 
 int main(int argc, char *argv[]) {
   Configuration config = {0};

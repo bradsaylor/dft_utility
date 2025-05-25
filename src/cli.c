@@ -26,11 +26,12 @@ int parse_cli(int argc, char *argv[], Configuration *config) {
   if (argc > 3) {
     for (int i = 3; i < argc; i++) {
       if (!strcmp("--output-mode", argv[i])) {
-        if (argc < 5) {
+        if (argc < i + 1) {
           printf("\nMissing output argument\n");
           print_usage_help();
           return 1;
         }
+
         if (!strcmp("csv", argv[i + 1])) {
           config->output_mode = OUTPUT_CSV;
         } else if (!strcmp("txt", argv[i + 1])) {
@@ -44,11 +45,12 @@ int parse_cli(int argc, char *argv[], Configuration *config) {
         }
         i++;
       } else if (!strcmp("--alg-mode", argv[i])) {
-        if (argc < 5) {
+        if (argc < i + 1) {
           printf("\nMissing algorithm argument\n");
           print_usage_help();
           return 1;
         }
+
         if (!strcmp("direct", argv[i + 1])) {
           config->algorithm_mode = ALG_MODE_DIRECT;
         } else if (!strcmp("fft", argv[i + 1])) {
@@ -63,6 +65,29 @@ int parse_cli(int argc, char *argv[], Configuration *config) {
           return 1;
         }
         i++;
+
+      } else if (!strcmp("--window-mode", argv[i])) {
+        if (argc < i + 1) {
+          printf("Missing window argument\n");
+          print_usage_help();
+          return 1;
+        }
+
+        if (!strcmp("han", argv[i + 1])) {
+          config->window_mode = WINDOW_HANNING;
+        } else if (!strcmp("ham", argv[i + 1])) {
+          config->window_mode = WINDOW_HAMMING;
+        } else if (!strcmp("ksr", argv[i + 1])) {
+          config->window_mode = WINDOW_KAISER;
+        } else if (!strcmp("bhs", argv[i + 1])) {
+          config->window_mode = WINDOW_BLACKMAN_HARRIS;
+        } else {
+          printf("Invalid window type: %s\n", argv[i + 1]);
+          print_usage_help();
+          return 1;
+        }
+        i++;
+
       } else {
         printf("\nInvalid option: %s\n", argv[i]);
         print_usage_help();
@@ -88,5 +113,10 @@ int print_usage_help() {
   printf("      fft:\tCalculate FFT using decimation in time algorithm\n");
   printf("      ifft:\tCalculate IFFT using decimation in time algroithm\n");
   printf("      gtz:\tCalculate DFT using Goertzel algorithm\n");
+  printf("  --window-mode\n");
+  printf("      han:\tApply Hanning window\n");
+  printf("      ham:\tApply Hamming window\n");
+  printf("      ksr:\tApply Kaiser window\n");
+  printf("      bhs:\tApply Blackman-Harris window\n");
   return 0;
 }
