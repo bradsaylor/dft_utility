@@ -6,6 +6,7 @@ var searchData=
   ['calloc_5foutput_5fpow2_3',['calloc_output_pow2',['../dft_8c.html#adf55a2d385bbaf2d7e27394c15fc83b8',1,'calloc_output_pow2(int N, int *new_length):&#160;dft.c'],['../dft_8h.html#adf55a2d385bbaf2d7e27394c15fc83b8',1,'calloc_output_pow2(int N, int *new_length):&#160;dft.c']]],
   ['cli_2ec_4',['cli.c',['../cli_8c.html',1,'']]],
   ['cli_2eh_5',['cli.h',['../cli_8h.html',1,'']]],
-  ['configuration_6',['Configuration',['../structConfiguration.html',1,'']]],
-  ['conjugate_5fsignal_7',['conjugate_signal',['../ifft__dit_8c.html#aa160b2f370f366649d4037139e21fae0',1,'conjugate_signal(double complex *signal, int N):&#160;ifft_dit.c'],['../ifft__dit_8h.html#aa160b2f370f366649d4037139e21fae0',1,'conjugate_signal(double complex *signal, int N):&#160;ifft_dit.c']]]
+  ['complex_5fdata_6',['complex_data',['../namespacegraph.html#ae237c653aa24fd0fcd8c4727eab19630',1,'graph']]],
+  ['configuration_7',['Configuration',['../structConfiguration.html',1,'']]],
+  ['conjugate_5fsignal_8',['conjugate_signal',['../ifft__dit_8c.html#aa160b2f370f366649d4037139e21fae0',1,'conjugate_signal(double complex *signal, int N):&#160;ifft_dit.c'],['../ifft__dit_8h.html#aa160b2f370f366649d4037139e21fae0',1,'conjugate_signal(double complex *signal, int N):&#160;ifft_dit.c']]]
 ];

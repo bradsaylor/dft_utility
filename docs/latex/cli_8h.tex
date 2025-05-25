@@ -1,7 +1,6 @@
 \doxysection{/home/brad/programming/c/dft\+\_\+calc/include/cli.h File Reference}
 \hypertarget{cli_8h}{}\label{cli_8h}\index{/home/brad/programming/c/dft\_calc/include/cli.h@{/home/brad/programming/c/dft\_calc/include/cli.h}}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,7 +29,16 @@ enum \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1c}{output\+Mode}} \
 , \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed}{OUTPUT\+\_\+\+CSV}}
 , \mbox{\hyperlink{cli_8h_a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe}{OUTPUT\+\_\+\+BIN}}
  \}
-\begin{DoxyCompactList}\small\item\em Output mode enumerations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Output mode enumerations. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{cli_8h_af58674327d6ad2c7b5f639ac32a36f7c}{window\+Mode}} \{ \newline
+\mbox{\hyperlink{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da}{WINDOW\+\_\+\+HANNING}}
+, \mbox{\hyperlink{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc}{WINDOW\+\_\+\+HAMMING}}
+, \mbox{\hyperlink{cli_8h_af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc}{WINDOW\+\_\+\+KAISER}}
+, \mbox{\hyperlink{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949}{WINDOW\+\_\+\+BLACKMAN\+\_\+\+HARRIS}}
+, \newline
+\mbox{\hyperlink{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a}{WINDOW\+\_\+\+FLAT\+\_\+\+TOP}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -98,6 +106,34 @@ OUTPUT\+\_\+\+CSV&\\
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_BIN@{OUTPUT\_BIN}!cli.h@{cli.h}}\index{cli.h@{cli.h}!OUTPUT\_BIN@{OUTPUT\_BIN}}}\Hypertarget{cli_8h_a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe}\label{cli_8h_a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe} 
 OUTPUT\+\_\+\+BIN&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{cli_8h_af58674327d6ad2c7b5f639ac32a36f7c}\label{cli_8h_af58674327d6ad2c7b5f639ac32a36f7c} 
+\index{cli.h@{cli.h}!windowMode@{windowMode}}
+\index{windowMode@{windowMode}!cli.h@{cli.h}}
+\doxysubsubsection{\texorpdfstring{windowMode}{windowMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{cli_8h_af58674327d6ad2c7b5f639ac32a36f7c}{window\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_HANNING@{WINDOW\_HANNING}!cli.h@{cli.h}}\index{cli.h@{cli.h}!WINDOW\_HANNING@{WINDOW\_HANNING}}}\Hypertarget{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da}\label{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da} 
+WINDOW\+\_\+\+HANNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_HAMMING@{WINDOW\_HAMMING}!cli.h@{cli.h}}\index{cli.h@{cli.h}!WINDOW\_HAMMING@{WINDOW\_HAMMING}}}\Hypertarget{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc}\label{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc} 
+WINDOW\+\_\+\+HAMMING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_KAISER@{WINDOW\_KAISER}!cli.h@{cli.h}}\index{cli.h@{cli.h}!WINDOW\_KAISER@{WINDOW\_KAISER}}}\Hypertarget{cli_8h_af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc}\label{cli_8h_af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc} 
+WINDOW\+\_\+\+KAISER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_BLACKMAN\_HARRIS@{WINDOW\_BLACKMAN\_HARRIS}!cli.h@{cli.h}}\index{cli.h@{cli.h}!WINDOW\_BLACKMAN\_HARRIS@{WINDOW\_BLACKMAN\_HARRIS}}}\Hypertarget{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949}\label{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949} 
+WINDOW\+\_\+\+BLACKMAN\+\_\+\+HARRIS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_FLAT\_TOP@{WINDOW\_FLAT\_TOP}!cli.h@{cli.h}}\index{cli.h@{cli.h}!WINDOW\_FLAT\_TOP@{WINDOW\_FLAT\_TOP}}}\Hypertarget{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a}\label{cli_8h_af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a} 
+WINDOW\+\_\+\+FLAT\+\_\+\+TOP&\\
 \hline
 
 \end{DoxyEnumFields}

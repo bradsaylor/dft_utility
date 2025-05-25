@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['max_5fpower_0',['MAX_POWER',['../make__WN__lut_8h.html#a3dfe59022c60e4bf47f43a981c9f10c8',1,'make_WN_lut.h']]]
+  ['output_5ffile_5fname_0',['output_file_name',['../structConfiguration.html#a127daf60b919a6ab43ce3629ac2650bc',1,'Configuration']]],
+  ['output_5fmode_1',['output_mode',['../structConfiguration.html#a035248a395b90de37a0578cbc3611dc7',1,'Configuration']]]
 ];

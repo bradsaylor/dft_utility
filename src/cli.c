@@ -81,11 +81,22 @@ int parse_cli(int argc, char *argv[], Configuration *config) {
           config->window_mode = WINDOW_KAISER;
         } else if (!strcmp("bhs", argv[i + 1])) {
           config->window_mode = WINDOW_BLACKMAN_HARRIS;
+        } else if (!strcmp("flt", argv[i + 1])) {
+          config->window_mode = WINDOW_FLAT_TOP;
         } else {
           printf("Invalid window type: %s\n", argv[i + 1]);
           print_usage_help();
           return 1;
         }
+        i++;
+
+      } else if (!strcmp("--window-parameter", argv[i])) {
+        if (argc < i + 1) {
+          printf("Missing window parameter\n");
+          print_usage_help();
+          return 1;
+        }
+        config->window_param = atof(argv[i + 1]);
         i++;
 
       } else {
@@ -118,5 +129,6 @@ int print_usage_help() {
   printf("      ham:\tApply Hamming window\n");
   printf("      ksr:\tApply Kaiser window\n");
   printf("      bhs:\tApply Blackman-Harris window\n");
+  printf("      flt:\tApply flat top window\n");
   return 0;
 }

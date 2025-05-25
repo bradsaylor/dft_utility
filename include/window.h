@@ -17,7 +17,18 @@
  * @param window_mode Requested windowing mode
  * @return int
  */
-int window(double complex *signal, int signal_length, windowMode window_mode);
+
+/**
+ * @brief
+ *
+ * @param signal Signal to be windowed
+ * @param signal_length Number of samples in signal
+ * @param window_mode Requested windowing mode
+ * @param window_param User supplied windowing parameter
+ * @return int
+ */
+int window(double complex *signal, int signal_length, windowMode window_mode,
+           double window_param);
 
 /**
  * @brief Applies Hanning window
@@ -42,12 +53,13 @@ int window_hamming(double complex *signal, int signal_length);
  *
  * @param signal Signal to be windowed
  * @param signal_length Number of samples in signal
+ * @param beta User supplied window parameter
  * @return int
  */
-int window_kaiser(double complex *signal, int signal_length);
+int window_kaiser(double complex *signal, int signal_length, double beta);
 
 /**
- * @brief Apples Blackman-Harris window
+ * @brief Applies Blackman-Harris window
  *
  * @param signal Signal to be windowed
  * @param signal_length Number of samples in signal
@@ -56,14 +68,33 @@ int window_kaiser(double complex *signal, int signal_length);
 int window_blackman_harris(double complex *signal, int signal_length);
 
 /**
+ * @brief Applies flat top window
+ *
+ * @param signal Signal to be windowed
+ * @param signal_length Number of samples in signal
+ * @return int
+ */
+int window_flat_top(double complex *signal, int signal_length);
+
+/**
  * @brief Utility function for implementing types of raised cosine window
- * 
- * @param signal Signal to be windowed 
+ *
+ * @param signal Signal to be windowed
  * @param signal_length  Number of samples in signal
  * @param param1 Raised cosine constant parameter
  * @param param2 Raised cosine sinusoid parameter
- * @return int 
+ * @return int
  */
-int window_raised_cosine(double complex *signal, int signal_length, double param1, double param2);
+int window_raised_cosine(double complex *signal, int signal_length,
+                         double *coeffs);
+
+/**
+ * @brief Calculate modified Bessel function of the first kind
+ * for kaiser windowing
+ *
+ * @param x discrete signal index
+ * @return int
+ */
+int bessel_I0(double x);
 
 #endif  // WINDOW_H

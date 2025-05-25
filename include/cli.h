@@ -23,7 +23,8 @@ typedef enum {
   WINDOW_HANNING,
   WINDOW_HAMMING,
   WINDOW_KAISER,
-  WINDOW_BLACKMAN_HARRIS
+  WINDOW_BLACKMAN_HARRIS,
+  WINDOW_FLAT_TOP,
 } windowMode;
 
 typedef struct {
@@ -32,6 +33,7 @@ typedef struct {
   algorithmMode algorithm_mode;
   outputMode output_mode;
   windowMode window_mode;
+  double window_param;
 } Configuration;
 
 /**

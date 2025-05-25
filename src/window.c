@@ -3,7 +3,8 @@
 #include <math.h>
 #include <stdio.h>
 
-int window(double complex *signal, int signal_length, windowMode window_mode) {
+int window(double complex *signal, int signal_length, windowMode window_mode,
+           double window_param) {
   switch (window_mode) {
     case WINDOW_HANNING:
       window_hanning(signal, signal_length);
@@ -12,7 +13,7 @@ int window(double complex *signal, int signal_length, windowMode window_mode) {
       window_hamming(signal, signal_length);
       break;
     case WINDOW_KAISER:
-      window_kaiser(signal, signal_length);
+      window_kaiser(signal, signal_length, window_param);
       break;
     case WINDOW_BLACKMAN_HARRIS:
       window_blackman_harris(signal, signal_length);
@@ -20,37 +21,73 @@ int window(double complex *signal, int signal_length, windowMode window_mode) {
     default:
       printf("Invalid window type\n");
       return 1;
-      break;
   }
 }
 
 int window_hanning(double complex *signal, int signal_length) {
-  double const_param = 0.5;
-  double sin_param = 0.5;
-  window_raised_cosine(signal, signal_length, const_param, sin_param);
+  double raised_cosine_coeffs[5] = {0.5, -0.5, 0, 0, 0};
+  window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
 
 int window_hamming(double complex *signal, int signal_length) {
-  double const_param = 0.54;
-  double sin_param = 0.46;
-  window_raised_cosine(signal, signal_length, const_param, sin_param);
+  double raised_cosine_coeffs[5] = {0.54, -0.46, 0, 0, 0};
+  window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
-
-int window_kaiser(double complex *signal, int signal_length) { return 0; }
 
 int window_blackman_harris(double complex *signal, int signal_length) {
-  for (int i = 0; i < signal_length; i++) {
-    signal[i] = 0.42 - 0.5 * cos(2 * PI * i / signal_length) +
-                0.08 * cos(4 * PI * i / signal_length);
-  }
+  double raised_cosine_coeffs[5] = {0.35875, -0.48829, 0.14128, -0.01168, 0};
+  window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
+
+int window_flat_top(double complex *signal, int signal_length) {
+  double raised_cosine_coeffs[5] = {0.21557895, -.41663158, 0.277263158,
+                                    -.083578947, 0.006947368};
+  window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
+  return 0;
+}
+
 int window_raised_cosine(double complex *signal, int signal_length,
-                          double param1, double param2) {
+                         double *coeffs) {
   for (int i = 0; i < signal_length; i++) {
-    signal[i] = param1 - param2 * cos(2 * PI * i / signal_length);
+    double sum = 0;
+    for (int j = 0; j < 5; j++) {
+      sum += coeffs[j] * cos(2 * j * PI * i / signal_length);
+    }
+    signal[i] *= sum;
   }
   return 0;
 };
+
+int window_kaiser(double complex *signal, int signal_length, double beta) {
+  // If no beta requested set value to 8.6 for ~100dB side lobe attenuation
+  if(beta == 0){
+    beta = 8.6;
+    printf("No window parameter specified, using beta=8.6\n");
+  }
+  double denom = bessel_I0(beta);
+
+  for (int i = 0; i < signal_length; i++) {
+    double r = 2.0 * i / (signal_length - 1.0) - 1.0;
+    double x = beta * sqrt(1.0 - r * r);
+    signal[i] *= bessel_I0(x) / denom;
+  }
+  return 0;
+}
+
+int bessel_I0(double x) {
+  double result = 1.0;
+  double this_iter = 1.0;
+  double const_term = x * x / 4.0;
+  int k = 1;
+
+  while (this_iter > 1e-10 * result) {
+    this_iter *= const_term / (k * k);
+    result += this_iter;
+    k++;
+  }
+
+  return result;
+}
