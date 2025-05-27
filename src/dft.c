@@ -22,12 +22,12 @@
 #include "../include/gtzl_dft.h"
 #include "../include/ifft_dit.h"
 #include "../include/output.h"
-#include "../include/read_sequence.h"
+#include "../include/read_sequencev2.h"
 #include "../include/window.h"
 
 int main(int argc, char *argv[]) {
   Configuration config = {0};
-  int ret_len = 0;
+  size_t input_length = 0;
   int output_length = 0;
   complex double *signal_out = NULL;
 
@@ -37,11 +37,11 @@ int main(int argc, char *argv[]) {
   }
 
   // Read the input sequence from a file
-  double complex *signal =
-      read_sequence(config.input_file_name, 1024, &ret_len);
+  double complex *signal = NULL;
+  read_sequence(config.input_file_name, &signal, &input_length, MAX_INPUT);
 
-  printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %d\n",
-         ret_len * sizeof(double complex), ret_len);
+  printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu\n",
+         input_length * sizeof(double complex), input_length);
 
   // mode = 0: Direct
   // mode = 1: FFT - time decimation
@@ -50,22 +50,22 @@ int main(int argc, char *argv[]) {
   // mode = 5: Benchmark
   switch (config.algorithm_mode) {
     case ALG_MODE_DIRECT:
-      signal_out = calloc_output_N(ret_len);
-      output_length = ret_len;
-      direct_dft(signal, signal_out, ret_len);
+      signal_out = calloc_output_N(input_length);
+      output_length = input_length;
+      direct_dft(signal, signal_out, input_length);
       break;
     case ALG_MODE_FFT:
-      signal_out = calloc_output_pow2(ret_len, &output_length);
+      signal_out = calloc_output_pow2(input_length, &output_length);
       fft_dit(signal, signal_out, output_length);
       break;
     case ALG_MODE_IFFT:
-      signal_out = calloc_output_pow2(ret_len, &output_length);
-      ifft_dit(signal, signal_out, ret_len, output_length);
+      signal_out = calloc_output_pow2(input_length, &output_length);
+      ifft_dit(signal, signal_out, input_length, output_length);
       break;
     case ALG_MODE_GOERTZEL:
-      signal_out = calloc_output_N(ret_len);
-      output_length = ret_len;
-      gtzl_dft(signal, signal_out, ret_len);
+      signal_out = calloc_output_N(input_length);
+      output_length = input_length;
+      gtzl_dft(signal, signal_out, input_length);
       break;
     default:
       printf("Invalid mode selected.\n");
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
   }
 
   // Output to file
-  write_output_file(config.output_file_name, config.output_mode, signal_out,
+  write_output_file(config.output_file_name, output_dir, config.output_mode, signal_out,
                     output_length);
 
   // Free allocated memory

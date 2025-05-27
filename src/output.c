@@ -3,18 +3,18 @@
 #include <stdio.h>
 #include <string.h>
 
-int write_output_file(char *output_filename, outputMode output_mode,
-                      double complex *output_sequence, int output_length) {
-  
+int write_output_file(char *output_filename, const char *output_dir,
+                      outputMode output_mode, double complex *output_sequence,
+                      int output_length) {
   switch (output_mode) {
     case (OUTPUT_CSV):
-      write_CSV(output_filename, output_sequence, output_length);
+      write_CSV(output_filename, output_dir, output_sequence, output_length);
       break;
     case (OUTPUT_TXT):
-      write_TXT(output_filename, output_sequence, output_length);
+      write_TXT(output_filename, output_dir, output_sequence, output_length);
       break;
     case (OUTPUT_BIN):
-      write_BIN(output_filename, output_sequence, output_length);
+      write_BIN(output_filename, output_dir, output_sequence, output_length);
       break;
     default:
       break;
@@ -22,9 +22,12 @@ int write_output_file(char *output_filename, outputMode output_mode,
   return 0;
 }
 
-int write_CSV(char *output_filename, double complex *output_sequence,
-              int output_length) {
-  FILE *fp = fopen(output_filename, "w");
+int write_CSV(char *output_filename, const char *output_dir,
+              double complex *output_sequence, int output_length) {
+  char output_path[50] = {0};
+  strcat(output_path, output_dir);
+  strcat(output_path, output_filename);
+  FILE *fp = fopen(output_path, "w");
   if (!fp) {
     printf("\nError: Unable to write output file\n");
   }
@@ -37,11 +40,15 @@ int write_CSV(char *output_filename, double complex *output_sequence,
   return 0;
 }
 
-int write_TXT(char *output_filename, double complex *output_sequence,
-              int output_length) {
-  FILE *fp = fopen(output_filename, "w");
+int write_TXT(char *output_filename, const char *output_dir,
+              double complex *output_sequence, int output_length) {
+  char output_path[50] = {0};
+  strcat(output_path, output_dir);
+  strcat(output_path, output_filename);
+  FILE *fp = fopen(output_path, "w");
   if (!fp) {
     printf("\nError: Unable to write output file\n");
+    return -1;
   }
 
   for (int i = 0; i < output_length; i++) {
@@ -52,9 +59,12 @@ int write_TXT(char *output_filename, double complex *output_sequence,
   return 0;
 }
 
-int write_BIN(char *output_filename, double complex *output_sequence,
-              int output_length) {
-  FILE *fp = fopen(output_filename, "wb");
+int write_BIN(char *output_filename, const char *output_dir,
+              double complex *output_sequence, int output_length) {
+  char output_path[50] = {0};
+  strcat(output_path, output_dir);
+  strcat(output_path, output_filename);
+  FILE *fp = fopen(output_path, "wb");
   if (!fp) {
     printf("\nError: Unable to write output file\n");
   }

@@ -2,6 +2,10 @@
 #define DFT_H
 
 #include <complex.h>
+#include <stddef.h>
+
+const size_t MAX_INPUT = 1024;
+const char *output_dir = "./output/";
 
 /**
  * @brief Allocates output array for for DFT results, 
