@@ -43,6 +43,9 @@ int main(int argc, char *argv[]) {
   printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu\n",
          input_length * sizeof(double complex), input_length);
 
+  if (config.window_mode) {
+    window(signal, input_length, config.window_mode, config.window_param);
+  }
   // mode = 0: Direct
   // mode = 1: FFT - time decimation
   // mode = 2: IFFT - time decimation
@@ -73,8 +76,8 @@ int main(int argc, char *argv[]) {
   }
 
   // Output to file
-  write_output_file(config.output_file_name, output_dir, config.output_mode, signal_out,
-                    output_length);
+  write_output_file(config.output_file_name, output_dir, config.output_mode,
+                    signal_out, output_length);
 
   // Free allocated memory
   free(signal);

@@ -46,3 +46,7 @@ test_output.txt
 archive/
 data/
 output/
+python_scripts/
+shell_scripts/
+test_inputs/
+

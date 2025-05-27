@@ -20,6 +20,7 @@ typedef enum {
 typedef enum { OUTPUT_UNKNOWN, OUTPUT_TXT, OUTPUT_CSV, OUTPUT_BIN } outputMode;
 
 typedef enum {
+  WINDOW_UNKNOWN,
   WINDOW_HANNING,
   WINDOW_HAMMING,
   WINDOW_KAISER,

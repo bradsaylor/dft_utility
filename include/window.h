@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include <complex.h>
+#include <stddef.h>
 
 #include "../include/cli.h"
 
@@ -27,7 +28,7 @@
  * @param window_param User supplied windowing parameter
  * @return int
  */
-int window(double complex *signal, int signal_length, windowMode window_mode,
+int window(double complex *signal, size_t signal_length, windowMode window_mode,
            double window_param);
 
 /**
@@ -37,7 +38,7 @@ int window(double complex *signal, int signal_length, windowMode window_mode,
  * @param signal_length Number of samples in signal
  * @return int
  */
-int window_hanning(double complex *signal, int signal_length);
+int window_hanning(double complex *signal, size_t signal_length);
 
 /**
  * @brief Applies Hamming window
@@ -46,7 +47,7 @@ int window_hanning(double complex *signal, int signal_length);
  * @param signal_length Number of samples in signal
  * @return int
  */
-int window_hamming(double complex *signal, int signal_length);
+int window_hamming(double complex *signal, size_t signal_length);
 
 /**
  * @brief Applies Kaiser window
@@ -56,7 +57,7 @@ int window_hamming(double complex *signal, int signal_length);
  * @param beta User supplied window parameter
  * @return int
  */
-int window_kaiser(double complex *signal, int signal_length, double beta);
+int window_kaiser(double complex *signal, size_t signal_length, double beta);
 
 /**
  * @brief Applies Blackman-Harris window
@@ -65,7 +66,7 @@ int window_kaiser(double complex *signal, int signal_length, double beta);
  * @param signal_length Number of samples in signal
  * @return int
  */
-int window_blackman_harris(double complex *signal, int signal_length);
+int window_blackman_harris(double complex *signal, size_t signal_length);
 
 /**
  * @brief Applies flat top window
@@ -74,7 +75,7 @@ int window_blackman_harris(double complex *signal, int signal_length);
  * @param signal_length Number of samples in signal
  * @return int
  */
-int window_flat_top(double complex *signal, int signal_length);
+int window_flat_top(double complex *signal, size_t signal_length);
 
 /**
  * @brief Utility function for implementing types of raised cosine window
@@ -85,7 +86,7 @@ int window_flat_top(double complex *signal, int signal_length);
  * @param param2 Raised cosine sinusoid parameter
  * @return int
  */
-int window_raised_cosine(double complex *signal, int signal_length,
+int window_raised_cosine(double complex *signal, size_t signal_length,
                          double *coeffs);
 
 /**
