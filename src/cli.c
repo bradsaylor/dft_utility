@@ -99,6 +99,9 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
         cli_config->window_param = atof(argv[i + 1]);
         i++;
 
+      } else if (!strcmp("--output-source", argv[i])) {
+        cli_config->output_source = 1;
+        
       } else {
         printf("\nInvalid option: %s\n", argv[i]);
         print_usage_help();

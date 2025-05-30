@@ -57,6 +57,13 @@ int main(int argc, char *argv[]) {
   // Output to file
   write_output_file(cli_config.output_file_name, program_config.output_dir,
                     cli_config.output_mode, output_signal, output_length);
+  if (cli_config.output_source) {
+    char src_out_name[50] = {0};
+    strcat(src_out_name, "src_");
+    strcat(src_out_name, cli_config.output_file_name);
+    write_output_file(src_out_name, program_config.output_dir,
+                      cli_config.output_mode, input_signal, input_length);
+  }
 
   // Free allocated memory
   free(input_signal);

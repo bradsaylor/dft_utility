@@ -54,6 +54,7 @@ typedef struct {
   outputMode output_mode;
   windowMode window_mode;
   double window_param;
+  int output_source;
 } CliConfiguration;
 
 #endif  // DFT_H
