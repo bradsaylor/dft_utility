@@ -1,4 +1,12 @@
 #include "../include/algorithms.h"
+#include "../include/direct_dft.h"
+#include "../include/fft_dit.h"
+#include "../include/gtzl_dft.h"
+#include "../include/ifft_dit.h"
+
+#include <stdlib.h>
+#include <math.h>
+#include <stdio.h>
 
 int dft_algorithms(algorithmMode alg_mode, int input_length,
                    double complex *input_signal,

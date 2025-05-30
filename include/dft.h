@@ -1,26 +1,59 @@
 #ifndef DFT_H
 #define DFT_H
 
-#include <complex.h>
 #include <stddef.h>
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-#include "cli.h"
-#include "direct_dft.h"
-#include "fft_dit.h"
-#include "gtzl_dft.h"
-#include "ifft_dit.h"
-#include "output.h"
-#include "read_sequencev2.h"
-#include "window.h"
-#include "algorithms.h"
+/**
+ * @brief Struct holding program config parameters
+ * 
+ */
+typedef struct {
+  const size_t MAX_INPUT;
+  const char *output_dir;
+} ProgramConfig;
 
-const size_t MAX_INPUT = 1024;
-const char *output_dir = "./output/";
+/**
+ * @brief Algorithm mode enumerations
+ *
+ */
+typedef enum {
+  ALG_MODE_UNKNOWN,
+  ALG_MODE_DIRECT,
+  ALG_MODE_FFT,
+  ALG_MODE_IFFT,
+  ALG_MODE_GOERTZEL,
+} algorithmMode;
 
+/**
+ * @brief Output mode enumerations
+ *
+ */
+typedef enum { OUTPUT_UNKNOWN, OUTPUT_TXT, OUTPUT_CSV, OUTPUT_BIN } outputMode;
 
+/**
+ * @brief Window mode enumerations
+ * 
+ */
+typedef enum {
+  WINDOW_UNKNOWN,
+  WINDOW_HANNING,
+  WINDOW_HAMMING,
+  WINDOW_KAISER,
+  WINDOW_BLACKMAN_HARRIS,
+  WINDOW_FLAT_TOP,
+} windowMode;
+
+/**
+ * @brief Struct to hold options entered from cli
+ * 
+ */
+typedef struct {
+  char input_file_name[50];
+  char output_file_name[50];
+  algorithmMode algorithm_mode;
+  outputMode output_mode;
+  windowMode window_mode;
+  double window_param;
+} CliConfiguration;
 
 #endif  // DFT_H

@@ -14,14 +14,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-int parse_cli(int argc, char *argv[], Configuration *config) {
+int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
   if (argc < 3) {
     printf("\nError parsing command line, insufficient number of arguments.\n");
     print_usage_help();
     return 1;
   }
-  strcpy(config->input_file_name, argv[1]);
-  strcpy(config->output_file_name, argv[2]);
+  strcpy(cli_config->input_file_name, argv[1]);
+  strcpy(cli_config->output_file_name, argv[2]);
 
   if (argc > 3) {
     for (int i = 3; i < argc; i++) {
@@ -33,11 +33,11 @@ int parse_cli(int argc, char *argv[], Configuration *config) {
         }
 
         if (!strcmp("csv", argv[i + 1])) {
-          config->output_mode = OUTPUT_CSV;
+          cli_config->output_mode = OUTPUT_CSV;
         } else if (!strcmp("txt", argv[i + 1])) {
-          config->output_mode = OUTPUT_TXT;
+          cli_config->output_mode = OUTPUT_TXT;
         } else if (!strcmp("bin", argv[i + 1])) {
-          config->output_mode = OUTPUT_BIN;
+          cli_config->output_mode = OUTPUT_BIN;
         } else {
           printf("\nInvalid output format: %s\n", argv[i + 1]);
           print_usage_help();
@@ -52,13 +52,13 @@ int parse_cli(int argc, char *argv[], Configuration *config) {
         }
 
         if (!strcmp("direct", argv[i + 1])) {
-          config->algorithm_mode = ALG_MODE_DIRECT;
+          cli_config->algorithm_mode = ALG_MODE_DIRECT;
         } else if (!strcmp("fft", argv[i + 1])) {
-          config->algorithm_mode = ALG_MODE_FFT;
+          cli_config->algorithm_mode = ALG_MODE_FFT;
         } else if (!strcmp("ifft", argv[i + 1])) {
-          config->algorithm_mode = ALG_MODE_IFFT;
+          cli_config->algorithm_mode = ALG_MODE_IFFT;
         } else if (!strcmp("gtz", argv[i + 1])) {
-          config->algorithm_mode = ALG_MODE_GOERTZEL;
+          cli_config->algorithm_mode = ALG_MODE_GOERTZEL;
         } else {
           printf("\nInvalid algorithm type: %s\n", argv[i + 1]);
           print_usage_help();
@@ -74,15 +74,15 @@ int parse_cli(int argc, char *argv[], Configuration *config) {
         }
 
         if (!strcmp("han", argv[i + 1])) {
-          config->window_mode = WINDOW_HANNING;
+          cli_config->window_mode = WINDOW_HANNING;
         } else if (!strcmp("ham", argv[i + 1])) {
-          config->window_mode = WINDOW_HAMMING;
+          cli_config->window_mode = WINDOW_HAMMING;
         } else if (!strcmp("ksr", argv[i + 1])) {
-          config->window_mode = WINDOW_KAISER;
+          cli_config->window_mode = WINDOW_KAISER;
         } else if (!strcmp("bhs", argv[i + 1])) {
-          config->window_mode = WINDOW_BLACKMAN_HARRIS;
+          cli_config->window_mode = WINDOW_BLACKMAN_HARRIS;
         } else if (!strcmp("flt", argv[i + 1])) {
-          config->window_mode = WINDOW_FLAT_TOP;
+          cli_config->window_mode = WINDOW_FLAT_TOP;
         } else {
           printf("Invalid window type: %s\n", argv[i + 1]);
           print_usage_help();
@@ -96,7 +96,7 @@ int parse_cli(int argc, char *argv[], Configuration *config) {
           print_usage_help();
           return 1;
         }
-        config->window_param = atof(argv[i + 1]);
+        cli_config->window_param = atof(argv[i + 1]);
         i++;
 
       } else {

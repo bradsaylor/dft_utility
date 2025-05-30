@@ -4,7 +4,7 @@
 #include <complex.h>
 #include <stddef.h>
 
-#include "../include/cli.h"
+#include "dft.h"
 
 #ifndef PI
 #define PI 3.14159265358979323846

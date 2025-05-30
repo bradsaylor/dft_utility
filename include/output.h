@@ -3,7 +3,7 @@
 
 #include <complex.h>
 
-#include "../include/cli.h"
+#include "dft.h"
 
 int write_output_file(char *output_filename, const char *output_dir, outputMode output_mode,
                       double complex *output_sequence, int output_length);

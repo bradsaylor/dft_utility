@@ -1,7 +1,7 @@
 #ifndef GTZL_DFT_H
 #define GTZL_DFT_H
 
-#include "complex.h"
+#include <complex.h>
 
 /**
  * @brief Computes the Discrete Fourier Transform via the Goertzel Algorithm.

@@ -5,7 +5,7 @@
 #include <string.h>
 
 int read_sequence(const char *filename, double complex **data_out,
-                  size_t *len_out, const int MAX_INPUT) {
+                  size_t *len_out, const size_t MAX_INPUT) {
   const char *ext = strrchr(filename, '.');
   if (!ext) return -1;
 
@@ -19,7 +19,7 @@ int read_sequence(const char *filename, double complex **data_out,
 }
 
 int read_complex_text(const char *filename, double complex **data_out,
-                      size_t *len_out, const int MAX_INPUT) {
+                      size_t *len_out, const size_t MAX_INPUT) {
   FILE *file = fopen(filename, "r");
   if (!file) return -1;
 
@@ -59,7 +59,7 @@ int read_complex_text(const char *filename, double complex **data_out,
 }
 
 int read_complex_csv(const char *filename, double complex **data_out,
-                     size_t *len_out, const int MAX_INPUT) {
+                     size_t *len_out, const size_t MAX_INPUT) {
   FILE *file = fopen(filename, "r");
   if (!file) return -1;
 
@@ -102,7 +102,7 @@ int read_complex_csv(const char *filename, double complex **data_out,
 }
 
 int read_complex_bin(const char *filename, double complex **data_out,
-                     size_t *len_out, const int MAX_INPUT) {
+                     size_t *len_out, const size_t MAX_INPUT) {
   FILE *file = fopen(filename, "rb");
   if (!file) return -1;
 
