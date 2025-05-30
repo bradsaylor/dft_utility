@@ -4,6 +4,9 @@ A lightweight C library and command-line utility for computing the Discrete Four
 
 ---
 
+![Signal Flow](docs/dft_util.drawio.svg)
+
+
 ## Features
 
 - Direct DFT computation (complex input/output)
