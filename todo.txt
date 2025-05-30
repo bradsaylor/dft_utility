@@ -1,0 +1,8 @@
+TODO
+* : Implement algorithms as interface
+    * verify
+    * done 
+* Implement testing framework and tests
+* Implement waveform plotting
+
+
