@@ -4,5 +4,6 @@ TODO
     * done 
 * Implement testing framework and tests
 * Implement waveform plotting
+    * verify
 
 

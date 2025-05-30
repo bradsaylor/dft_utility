@@ -30,6 +30,7 @@ int write_CSV(char *output_filename, const char *output_dir,
   FILE *fp = fopen(output_path, "w");
   if (!fp) {
     printf("\nError: Unable to write output file\n");
+    return -1;
   }
   fprintf(fp, "index,real,imag\n");
   for (int i = 0; i < output_length; i++) {
@@ -67,6 +68,7 @@ int write_BIN(char *output_filename, const char *output_dir,
   FILE *fp = fopen(output_path, "wb");
   if (!fp) {
     printf("\nError: Unable to write output file\n");
+    return -1;
   }
   for (int i = 0; i < output_length; i++) {
     double re = creal(output_sequence[i]);

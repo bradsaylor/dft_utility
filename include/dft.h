@@ -55,6 +55,8 @@ typedef struct {
   windowMode window_mode;
   double window_param;
   int output_source;
+  double sampling_freq;
+  int write_meta;
 } CliConfiguration;
 
 #endif  // DFT_H

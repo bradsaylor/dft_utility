@@ -99,9 +99,19 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
         cli_config->window_param = atof(argv[i + 1]);
         i++;
 
+      } else if (!strcmp("--fs", argv[i])) {
+        if (argc < i + 1) {
+          printf("Missing sampleing frequency parameter\n");
+          print_usage_help();
+          return 1;
+        }
+        cli_config->sampling_freq = atof(argv[i + 1]);
+        i++;
       } else if (!strcmp("--output-source", argv[i])) {
         cli_config->output_source = 1;
-        
+
+      } else if (!strcmp("--write-meta", argv[i])) {
+        cli_config->write_meta = 1;
       } else {
         printf("\nInvalid option: %s\n", argv[i]);
         print_usage_help();

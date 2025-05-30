@@ -25,6 +25,7 @@
 #include "../include/output.h"
 #include "../include/read_sequencev2.h"
 #include "../include/window.h"
+#include "../include/meta_file.h"
 
 int main(int argc, char *argv[]) {
   ProgramConfig program_config = {.MAX_INPUT = 1024, .output_dir = "./output/"};
@@ -63,6 +64,9 @@ int main(int argc, char *argv[]) {
     strcat(src_out_name, cli_config.output_file_name);
     write_output_file(src_out_name, program_config.output_dir,
                       cli_config.output_mode, input_signal, input_length);
+  }
+  if(cli_config.write_meta){
+    write_meta_file(&program_config, &cli_config, output_length);
   }
 
   // Free allocated memory
