@@ -1,9 +1,11 @@
 <map id="/home/brad/programming/c/dft_calc/include/fft_dit.h" name="/home/brad/programming/c/dft_calc/include/fft_dit.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="215,5,407,45"/>
-<area shape="rect" id="Node000002" href="$dft_8c.html" title="Compute DFT from data file by various methods." alt="" coords="5,93,193,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,53,147,96,145,91,251,48"/>
-<area shape="rect" id="Node000003" href="$fft__dit_8c.html" title="Calculates DFT via FFT time decimation algorithm." alt="" coords="217,93,405,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="314,59,314,93,309,93,309,59"/>
-<area shape="rect" id="Node000004" href="$ifft__dit_8c.html" title="Compute inverse FFT by using forward FFT decimation in time algorithm." alt="" coords="429,93,617,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="371,48,478,91,476,96,369,53"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="328,5,520,45"/>
+<area shape="rect" id="Node000002" href="$algorithms_8c.html" title=" " alt="" coords="5,93,200,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="341,51,174,96,172,91,340,46"/>
+<area shape="rect" id="Node000003" href="$dft_8c.html" title="Compute DFT from data file by various methods." alt="" coords="225,93,413,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="392,56,344,95,340,91,389,52"/>
+<area shape="rect" id="Node000004" href="$fft__dit_8c.html" title="Calculates DFT via FFT time decimation algorithm." alt="" coords="437,93,625,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="460,52,509,91,505,95,457,56"/>
+<area shape="rect" id="Node000005" href="$ifft__dit_8c.html" title="Compute inverse FFT by using forward FFT decimation in time algorithm." alt="" coords="649,93,837,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="508,46,674,91,672,96,507,52"/>
 </map>

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['graph_2epy_0',['graph.py',['../graph_8py.html',1,'']]],
-  ['gtzl_5fdft_2ec_1',['gtzl_dft.c',['../gtzl__dft_8c.html',1,'']]],
-  ['gtzl_5fdft_2eh_2',['gtzl_dft.h',['../gtzl__dft_8h.html',1,'']]]
+  ['fft_5fdit_2ec_0',['fft_dit.c',['../fft__dit_8c.html',1,'']]],
+  ['fft_5fdit_2eh_1',['fft_dit.h',['../fft__dit_8h.html',1,'']]]
 ];

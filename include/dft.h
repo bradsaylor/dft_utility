@@ -2,10 +2,11 @@
 #define DFT_H
 
 #include <stddef.h>
+#include <stdbool.h>
 
 /**
  * @brief Struct holding program config parameters
- * 
+ *
  */
 typedef struct {
   const size_t MAX_INPUT;
@@ -32,7 +33,7 @@ typedef enum { OUTPUT_UNKNOWN, OUTPUT_TXT, OUTPUT_CSV, OUTPUT_BIN } outputMode;
 
 /**
  * @brief Window mode enumerations
- * 
+ *
  */
 typedef enum {
   WINDOW_UNKNOWN,
@@ -45,7 +46,7 @@ typedef enum {
 
 /**
  * @brief Struct to hold options entered from cli
- * 
+ *
  */
 typedef struct {
   char input_file_name[50];
@@ -57,6 +58,9 @@ typedef struct {
   int output_source;
   double sampling_freq;
   int write_meta;
+  size_t requested_length;
+  int truncate_ok;
+
 } CliConfiguration;
 
 #endif  // DFT_H

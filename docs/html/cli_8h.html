@@ -90,152 +90,50 @@ $(document).ready(function(){initNavTree('cli_8h.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">cli.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="dft_8h_source.html">dft.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for cli.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="cli_8h__incl.png" border="0" usemap="#a_2home_2brad_2programming_2c_2dft__calc_2include_2cli_8h" alt=""/></div>
+<map name="a_2home_2brad_2programming_2c_2dft__calc_2include_2cli_8h" id="a_2home_2brad_2programming_2c_2dft__calc_2include_2cli_8h">
+<area shape="rect" title=" " alt="" coords="5,5,193,45"/>
+<area shape="rect" href="dft_8h.html" title=" " alt="" coords="74,93,125,119"/>
+<area shape="poly" title=" " alt="" coords="102,46,102,79,97,79,97,46"/>
+<area shape="rect" title=" " alt="" coords="62,167,137,192"/>
+<area shape="poly" title=" " alt="" coords="102,119,102,153,97,153,97,119"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="cli_8h__dep__incl.png" border="0" usemap="#a_2home_2brad_2programming_2c_2dft__calc_2include_2cli_8hdep" alt=""/></div>
 <map name="a_2home_2brad_2programming_2c_2dft__calc_2include_2cli_8hdep" id="a_2home_2brad_2programming_2c_2dft__calc_2include_2cli_8hdep">
-<area shape="rect" title=" " alt="" coords="287,5,475,45"/>
-<area shape="rect" href="output_8h.html" title=" " alt="" coords="77,93,273,133"/>
-<area shape="poly" title=" " alt="" coords="324,53,221,96,219,91,322,48"/>
-<area shape="rect" href="dft_8c.html" title="Compute DFT from data file by various methods." alt="" coords="217,181,405,221"/>
-<area shape="poly" title=" " alt="" coords="360,58,339,94,324,141,316,182,311,181,319,139,334,92,355,55"/>
-<area shape="rect" href="window_8h.html" title=" " alt="" coords="349,93,551,133"/>
-<area shape="poly" title=" " alt="" coords="407,55,437,91,433,95,403,58"/>
-<area shape="rect" href="cli_8c.html" title="Functions for parsing and checking command line arguments." alt="" coords="576,93,764,133"/>
-<area shape="poly" title=" " alt="" coords="458,47,607,91,606,96,456,52"/>
-<area shape="poly" title=" " alt="" coords="218,139,283,179,280,184,216,143"/>
-<area shape="rect" href="output_8c.html" title=" " alt="" coords="5,181,193,221"/>
-<area shape="poly" title=" " alt="" coords="151,146,118,183,114,179,147,142"/>
-<area shape="poly" title=" " alt="" coords="410,143,343,184,340,179,407,138"/>
-<area shape="rect" href="window_8c.html" title=" " alt="" coords="429,181,617,221"/>
-<area shape="poly" title=" " alt="" coords="477,142,509,179,505,183,473,146"/>
+<area shape="rect" title=" " alt="" coords="111,5,299,45"/>
+<area shape="rect" href="cli_8c.html" title="Functions for parsing and checking command line arguments." alt="" coords="5,93,193,133"/>
+<area shape="poly" title=" " alt="" coords="173,56,124,95,121,91,169,52"/>
+<area shape="rect" href="dft_8c.html" title="Compute DFT from data file by various methods." alt="" coords="217,93,405,133"/>
+<area shape="poly" title=" " alt="" coords="241,52,289,91,286,95,237,56"/>
 </map>
 </div>
 </div>
 <p><a href="cli_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfiguration.html">Configuration</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a4db69d3373ffa5ccb87a712c91578507" id="r_a4db69d3373ffa5ccb87a712c91578507"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cli_8h.html#a4db69d3373ffa5ccb87a712c91578507">algorithmMode</a> { <br />
-&#160;&#160;<a class="el" href="cli_8h.html#a4db69d3373ffa5ccb87a712c91578507afde9d0db15f1a108c7ad19a4dc0622cb">ALG_MODE_UNKNOWN</a>
-, <a class="el" href="cli_8h.html#a4db69d3373ffa5ccb87a712c91578507a396731635dfcb4c88d3832578e8674ec">ALG_MODE_DIRECT</a>
-, <a class="el" href="cli_8h.html#a4db69d3373ffa5ccb87a712c91578507a59ba1da1de6c07e8b7599fbddf6218e8">ALG_MODE_FFT</a>
-, <a class="el" href="cli_8h.html#a4db69d3373ffa5ccb87a712c91578507a45bfce5fb203c95383081ac78914ef78">ALG_MODE_IFFT</a>
-, <br />
-&#160;&#160;<a class="el" href="cli_8h.html#a4db69d3373ffa5ccb87a712c91578507a491068cfe2f06017138d096025dbcbd6">ALG_MODE_GOERTZEL</a>
-<br />
- }</td></tr>
-<tr class="memdesc:a4db69d3373ffa5ccb87a712c91578507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithm mode enumerations.  <a href="cli_8h.html#a4db69d3373ffa5ccb87a712c91578507">More...</a><br /></td></tr>
-<tr class="separator:a4db69d3373ffa5ccb87a712c91578507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e02ae24afd0ca42c3438d353e479c1c" id="r_a3e02ae24afd0ca42c3438d353e479c1c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cli_8h.html#a3e02ae24afd0ca42c3438d353e479c1c">outputMode</a> { <a class="el" href="cli_8h.html#a3e02ae24afd0ca42c3438d353e479c1ca7825ae50ec73e929c7a9345d1cc86184">OUTPUT_UNKNOWN</a>
-, <a class="el" href="cli_8h.html#a3e02ae24afd0ca42c3438d353e479c1ca02a066456d3edff83944e30f1482b8bc">OUTPUT_TXT</a>
-, <a class="el" href="cli_8h.html#a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed">OUTPUT_CSV</a>
-, <a class="el" href="cli_8h.html#a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe">OUTPUT_BIN</a>
- }</td></tr>
-<tr class="memdesc:a3e02ae24afd0ca42c3438d353e479c1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output mode enumerations.  <a href="cli_8h.html#a3e02ae24afd0ca42c3438d353e479c1c">More...</a><br /></td></tr>
-<tr class="separator:a3e02ae24afd0ca42c3438d353e479c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af58674327d6ad2c7b5f639ac32a36f7c" id="r_af58674327d6ad2c7b5f639ac32a36f7c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cli_8h.html#af58674327d6ad2c7b5f639ac32a36f7c">windowMode</a> { <br />
-&#160;&#160;<a class="el" href="cli_8h.html#af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da">WINDOW_HANNING</a>
-, <a class="el" href="cli_8h.html#af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc">WINDOW_HAMMING</a>
-, <a class="el" href="cli_8h.html#af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc">WINDOW_KAISER</a>
-, <a class="el" href="cli_8h.html#af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949">WINDOW_BLACKMAN_HARRIS</a>
-, <br />
-&#160;&#160;<a class="el" href="cli_8h.html#af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a">WINDOW_FLAT_TOP</a>
-<br />
- }</td></tr>
-<tr class="separator:af58674327d6ad2c7b5f639ac32a36f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a17e060b24e3169e3fadd78ac634e9e26" id="r_a17e060b24e3169e3fadd78ac634e9e26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cli_8h.html#a17e060b24e3169e3fadd78ac634e9e26">parse_cli</a> (int argc, char *argv[], <a class="el" href="structConfiguration.html">Configuration</a> *config)</td></tr>
-<tr class="memdesc:a17e060b24e3169e3fadd78ac634e9e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse and error check command line arguments.  <br /></td></tr>
-<tr class="separator:a17e060b24e3169e3fadd78ac634e9e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad97f29d5952c44addbccd4ecc00ff648" id="r_ad97f29d5952c44addbccd4ecc00ff648"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cli_8h.html#ad97f29d5952c44addbccd4ecc00ff648">parse_cli</a> (int argc, char *argv[], <a class="el" href="structCliConfiguration.html">CliConfiguration</a> *cli_config)</td></tr>
+<tr class="memdesc:ad97f29d5952c44addbccd4ecc00ff648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse and error check command line arguments.  <br /></td></tr>
+<tr class="separator:ad97f29d5952c44addbccd4ecc00ff648"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bc6f5dbc990acb8ea9724ba99d8cff9" id="r_a8bc6f5dbc990acb8ea9724ba99d8cff9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cli_8h.html#a8bc6f5dbc990acb8ea9724ba99d8cff9">print_usage_help</a> ()</td></tr>
 <tr class="memdesc:a8bc6f5dbc990acb8ea9724ba99d8cff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print command usage and option information.  <br /></td></tr>
 <tr class="separator:a8bc6f5dbc990acb8ea9724ba99d8cff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a4db69d3373ffa5ccb87a712c91578507" name="a4db69d3373ffa5ccb87a712c91578507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4db69d3373ffa5ccb87a712c91578507">&#9670;&#160;</a></span>algorithmMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="cli_8h.html#a4db69d3373ffa5ccb87a712c91578507">algorithmMode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Algorithm mode enumerations. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4db69d3373ffa5ccb87a712c91578507afde9d0db15f1a108c7ad19a4dc0622cb" name="a4db69d3373ffa5ccb87a712c91578507afde9d0db15f1a108c7ad19a4dc0622cb"></a>ALG_MODE_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4db69d3373ffa5ccb87a712c91578507a396731635dfcb4c88d3832578e8674ec" name="a4db69d3373ffa5ccb87a712c91578507a396731635dfcb4c88d3832578e8674ec"></a>ALG_MODE_DIRECT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4db69d3373ffa5ccb87a712c91578507a59ba1da1de6c07e8b7599fbddf6218e8" name="a4db69d3373ffa5ccb87a712c91578507a59ba1da1de6c07e8b7599fbddf6218e8"></a>ALG_MODE_FFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4db69d3373ffa5ccb87a712c91578507a45bfce5fb203c95383081ac78914ef78" name="a4db69d3373ffa5ccb87a712c91578507a45bfce5fb203c95383081ac78914ef78"></a>ALG_MODE_IFFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4db69d3373ffa5ccb87a712c91578507a491068cfe2f06017138d096025dbcbd6" name="a4db69d3373ffa5ccb87a712c91578507a491068cfe2f06017138d096025dbcbd6"></a>ALG_MODE_GOERTZEL&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="a3e02ae24afd0ca42c3438d353e479c1c" name="a3e02ae24afd0ca42c3438d353e479c1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e02ae24afd0ca42c3438d353e479c1c">&#9670;&#160;</a></span>outputMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="cli_8h.html#a3e02ae24afd0ca42c3438d353e479c1c">outputMode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Output mode enumerations. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3e02ae24afd0ca42c3438d353e479c1ca7825ae50ec73e929c7a9345d1cc86184" name="a3e02ae24afd0ca42c3438d353e479c1ca7825ae50ec73e929c7a9345d1cc86184"></a>OUTPUT_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a3e02ae24afd0ca42c3438d353e479c1ca02a066456d3edff83944e30f1482b8bc" name="a3e02ae24afd0ca42c3438d353e479c1ca02a066456d3edff83944e30f1482b8bc"></a>OUTPUT_TXT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed" name="a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed"></a>OUTPUT_CSV&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe" name="a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe"></a>OUTPUT_BIN&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="af58674327d6ad2c7b5f639ac32a36f7c" name="af58674327d6ad2c7b5f639ac32a36f7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af58674327d6ad2c7b5f639ac32a36f7c">&#9670;&#160;</a></span>windowMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="cli_8h.html#af58674327d6ad2c7b5f639ac32a36f7c">windowMode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da" name="af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da"></a>WINDOW_HANNING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc" name="af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc"></a>WINDOW_HAMMING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc" name="af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc"></a>WINDOW_KAISER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949" name="af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949"></a>WINDOW_BLACKMAN_HARRIS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a" name="af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a"></a>WINDOW_FLAT_TOP&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a17e060b24e3169e3fadd78ac634e9e26" name="a17e060b24e3169e3fadd78ac634e9e26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17e060b24e3169e3fadd78ac634e9e26">&#9670;&#160;</a></span>parse_cli()</h2>
+<a id="ad97f29d5952c44addbccd4ecc00ff648" name="ad97f29d5952c44addbccd4ecc00ff648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97f29d5952c44addbccd4ecc00ff648">&#9670;&#160;</a></span>parse_cli()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,8 +153,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structConfiguration.html">Configuration</a> *&#160;</td>
-          <td class="paramname"><em>config</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structCliConfiguration.html">CliConfiguration</a> *&#160;</td>
+          <td class="paramname"><em>cli_config</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

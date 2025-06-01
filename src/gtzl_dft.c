@@ -4,9 +4,9 @@
  * @brief Compute DFT via Goertzel Algorithm
  * @version 0.1
  * @date 2025-05-19
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 #include "../include/gtzl_dft.h"
 

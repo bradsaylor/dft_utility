@@ -26,13 +26,6 @@ var NAVTREE =
 [
   [ "DFT Utility", "index.html", [
     [ "DFT Utility Documentation", "index.html", null ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ]
-      ] ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -56,7 +49,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"algorithms_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

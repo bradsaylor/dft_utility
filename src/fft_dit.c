@@ -14,8 +14,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../include/fft_twiddle_factor_LUT.h"
-#include "../include/fft_reverse_index_LUT.h"
+#include "../tools/generated/include/fft_reverse_index_LUT.h"
+#include "../tools/generated/include/fft_twiddle_factor_LUT.h"
 
 int fft_dit(double complex *signal, double complex *signal_out, int N) {
   int num_decims = (int)log2(N);  // Total number of decimation steps

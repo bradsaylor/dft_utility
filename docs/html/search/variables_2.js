@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['input_5ffile_5fname_0',['input_file_name',['../structConfiguration.html#a58d3b4263779ed5194433a9f78f20426',1,'Configuration']]]
+  ['max_5finput_0',['MAX_INPUT',['../structProgramConfig.html#aca749ab156773d6578687bb462491ab5',1,'ProgramConfig']]]
 ];

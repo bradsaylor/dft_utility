@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['usage_0',['Usage',['../index.html#autotoc_md2',1,'']]],
-  ['utility_20documentation_1',['DFT Utility Documentation',['../index.html',1,'']]]
+  ['sampling_5ffreq_0',['sampling_freq',['../structCliConfiguration.html#a2f75b911b5f85820da9caf42f8307158',1,'CliConfiguration']]]
 ];

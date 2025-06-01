@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['raw_0',['raw',['../namespacegraph.html#a8280a2d0e07353882149d3aaea4047ed',1,'graph']]],
-  ['read_5fsequence_1',['read_sequence',['../read__sequence_8c.html#a7ed6decc071a03570531be54188711cf',1,'read_sequence(const char *filename, int max_len, int *len):&#160;read_sequence.c'],['../read__sequence_8h.html#a7ed6decc071a03570531be54188711cf',1,'read_sequence(const char *filename, int max_len, int *len):&#160;read_sequence.c']]],
-  ['read_5fsequence_2ec_2',['read_sequence.c',['../read__sequence_8c.html',1,'']]],
-  ['read_5fsequence_2eh_3',['read_sequence.h',['../read__sequence_8h.html',1,'']]]
+  ['read_5fcomplex_5fbin_0',['read_complex_bin',['../read__sequencev2_8c.html#a96c2b7700ec3b3d20ddc5a21bfe00461',1,'read_complex_bin(const char *filename, double complex **data_out, size_t *len_out, const size_t MAX_INPUT):&#160;read_sequencev2.c'],['../read__sequencev2_8h.html#a96c2b7700ec3b3d20ddc5a21bfe00461',1,'read_complex_bin(const char *filename, double complex **data_out, size_t *len_out, const size_t MAX_INPUT):&#160;read_sequencev2.c']]],
+  ['read_5fcomplex_5fcsv_1',['read_complex_csv',['../read__sequencev2_8c.html#acc404d18c3ebf5d84f0de24d4c41b8ac',1,'read_complex_csv(const char *filename, double complex **data_out, size_t *len_out, const size_t MAX_INPUT):&#160;read_sequencev2.c'],['../read__sequencev2_8h.html#acc404d18c3ebf5d84f0de24d4c41b8ac',1,'read_complex_csv(const char *filename, double complex **data_out, size_t *len_out, const size_t MAX_INPUT):&#160;read_sequencev2.c']]],
+  ['read_5fcomplex_5ftext_2',['read_complex_text',['../read__sequencev2_8c.html#a578507b925aa147cf6c5bb09b17c443b',1,'read_complex_text(const char *filename, double complex **data_out, size_t *len_out, const size_t MAX_INPUT):&#160;read_sequencev2.c'],['../read__sequencev2_8h.html#a578507b925aa147cf6c5bb09b17c443b',1,'read_complex_text(const char *filename, double complex **data_out, size_t *len_out, const size_t MAX_INPUT):&#160;read_sequencev2.c']]],
+  ['read_5fsequence_3',['read_sequence',['../read__sequencev2_8c.html#a6b82a89421b2a3a77db69479cf2371c9',1,'read_sequence(const char *filename, double complex **data_out, size_t *len_out, const size_t MAX_INPUT):&#160;read_sequencev2.c'],['../read__sequencev2_8h.html#a6b82a89421b2a3a77db69479cf2371c9',1,'read_sequence(const char *filename, double complex **data_out, size_t *len_out, const size_t MAX_INPUT):&#160;read_sequencev2.c']]],
+  ['read_5fsequencev2_2ec_4',['read_sequencev2.c',['../read__sequencev2_8c.html',1,'']]],
+  ['read_5fsequencev2_2eh_5',['read_sequencev2.h',['../read__sequencev2_8h.html',1,'']]]
 ];

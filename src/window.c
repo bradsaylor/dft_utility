@@ -66,7 +66,7 @@ int window_raised_cosine(double complex *signal, size_t signal_length,
 
 int window_kaiser(double complex *signal, size_t signal_length, double beta) {
   // If no beta requested set value to 8.6 for ~100dB side lobe attenuation
-  if(beta == 0){
+  if (beta == 0) {
     beta = 8.6;
     printf("No window parameter specified, using beta=8.6\n");
   }

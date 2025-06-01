@@ -28,34 +28,31 @@ int write_meta_file(ProgramConfig *program_config, CliConfiguration *cli_config,
   }
 
   fprintf(fp, "{\n");
-  fprintf(fp, "\t\"dft_util_metadata\":[\n");
+  fprintf(fp, "\t\"dft_util_metadata\":  {\n");
 
-  fprintf(fp, "\t\t{\"cli_config\":\n");
+  fprintf(fp, "\t\t\"cli_config\":  {\n");
 
-  fprintf(fp, "\t\t\t{\n");
-  fprintf(fp, "\t\t\t\t\"input_file\":\"%s\",\n", cli_config->input_file_name);
-  fprintf(fp, "\t\t\t\t\"output_file\":\"%s\",\n", cli_config->output_file_name);
-  fprintf(fp, "\t\t\t\t\"algorithm_mode\":\"%s\",\n",
+  fprintf(fp, "\t\t\t\"input_file\":\"%s\",\n", cli_config->input_file_name);
+  fprintf(fp, "\t\t\t\"output_file\":\"%s\",\n",
+          cli_config->output_file_name);
+  fprintf(fp, "\t\t\t\"algorithm_mode\":\"%s\",\n",
           algorithm_list[cli_config->algorithm_mode]);
-  fprintf(fp, "\t\t\t\t\"output_mode\":\"%s\",\n",
+  fprintf(fp, "\t\t\t\"output_mode\":\"%s\",\n",
           output_type_list[cli_config->output_mode]);
-  fprintf(fp, "\t\t\t\t\"window_param\":%lf,\n", cli_config->window_param);
-  fprintf(fp, "\t\t\t\t\"output_source\":%d,\n", cli_config->output_source);
-  fprintf(fp, "\t\t\t\t\"sampling_freq\":%lf\n", cli_config->sampling_freq);
-  fprintf(fp, "\t\t\t}\n");
+  fprintf(fp, "\t\t\t\"window_param\":%lf,\n", cli_config->window_param);
+  fprintf(fp, "\t\t\t\"output_source\":%d,\n", cli_config->output_source);
+  fprintf(fp, "\t\t\t\"sampling_freq\":%lf\n", cli_config->sampling_freq);
 
   fprintf(fp, "\t\t},\n");
-  fprintf(fp, "\t\t{\"program_config\":\n");
+  fprintf(fp, "\t\t\"program_config\":  {\n");
 
-  fprintf(fp, "\t\t\t{\n");
-  fprintf(fp, "\t\t\t\t\"max_input\":%ld,\n", program_config->MAX_INPUT);
-  fprintf(fp, "\t\t\t\t\"output_dir\":\"%s\"\n", program_config->output_dir);
-  fprintf(fp, "\t\t\t}\n");
+  fprintf(fp, "\t\t\t\"max_input\":%ld,\n", program_config->MAX_INPUT);
+  fprintf(fp, "\t\t\t\"output_dir\":\"%s\"\n", program_config->output_dir);
 
   fprintf(fp, "\t\t},\n");
-  fprintf(fp, "\t\t{\"output_length\":%d}\n", output_length);
+  fprintf(fp, "\t\t\"output_length\":%d\n", output_length);
 
-  fprintf(fp, "\t]\n");
+  fprintf(fp, "\t}\n");
   fprintf(fp, "}");
   fclose(fp);
 

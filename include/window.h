@@ -11,15 +11,6 @@
 #endif
 
 /**
- * @brief Distributes signal to applicable windowing function
- *
- * @param signal Signal to be windowed
- * @param signal_length Number of samples in signal
- * @param window_mode Requested windowing mode
- * @return int
- */
-
-/**
  * @brief
  *
  * @param signal Signal to be windowed

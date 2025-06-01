@@ -1,65 +1,153 @@
 \doxysection{/home/brad/programming/c/dft\+\_\+calc/include/dft.h File Reference}
 \hypertarget{dft_8h}{}\label{dft_8h}\index{/home/brad/programming/c/dft\_calc/include/dft.h@{/home/brad/programming/c/dft\_calc/include/dft.h}}
-{\ttfamily \#include $<$complex.\+h$>$}\newline
-Include dependency graph for dft.\+h\+:\nopagebreak
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for dft.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=221pt]{dft_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=221pt]{dft_8h__dep__incl}
+\includegraphics[width=350pt]{dft_8h__dep__incl}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Functions}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-double complex \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dft_8h_adf55a2d385bbaf2d7e27394c15fc83b8}{calloc\+\_\+output\+\_\+pow2}} (int N, int \texorpdfstring{$\ast$}{*}new\+\_\+length)
-\begin{DoxyCompactList}\small\item\em Allocates output array for for DFT results, length is 2\texorpdfstring{$^\wedge$}{\string^}v for the nearest power of two greater than N. \end{DoxyCompactList}\item 
-double complex \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dft_8h_a78593809eed625d3384a352b3c6945e3}{calloc\+\_\+output\+\_\+N}} (int N)
-\begin{DoxyCompactList}\small\item\em Allocates output array for DFT results, length is same as input N. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{structProgramConfig}{Program\+Config}}
+\begin{DoxyCompactList}\small\item\em Struct holding program config parameters. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCliConfiguration}{Cli\+Configuration}}
+\begin{DoxyCompactList}\small\item\em Struct to hold options entered from cli. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507}{algorithm\+Mode}} \{ \newline
+\mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507afde9d0db15f1a108c7ad19a4dc0622cb}{ALG\+\_\+\+MODE\+\_\+\+UNKNOWN}}
+, \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507a396731635dfcb4c88d3832578e8674ec}{ALG\+\_\+\+MODE\+\_\+\+DIRECT}}
+, \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507a59ba1da1de6c07e8b7599fbddf6218e8}{ALG\+\_\+\+MODE\+\_\+\+FFT}}
+, \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507a45bfce5fb203c95383081ac78914ef78}{ALG\+\_\+\+MODE\+\_\+\+IFFT}}
+, \newline
+\mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507a491068cfe2f06017138d096025dbcbd6}{ALG\+\_\+\+MODE\+\_\+\+GOERTZEL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Algorithm mode enumerations. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1c}{output\+Mode}} \{ \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca7825ae50ec73e929c7a9345d1cc86184}{OUTPUT\+\_\+\+UNKNOWN}}
+, \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca02a066456d3edff83944e30f1482b8bc}{OUTPUT\+\_\+\+TXT}}
+, \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed}{OUTPUT\+\_\+\+CSV}}
+, \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe}{OUTPUT\+\_\+\+BIN}}
+ \}
+\begin{DoxyCompactList}\small\item\em Output mode enumerations. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7c}{window\+Mode}} \{ \newline
+\mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7caebc637c60fdebba52fd149863463abda}{WINDOW\+\_\+\+UNKNOWN}}
+, \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da}{WINDOW\+\_\+\+HANNING}}
+, \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc}{WINDOW\+\_\+\+HAMMING}}
+, \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc}{WINDOW\+\_\+\+KAISER}}
+, \newline
+\mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949}{WINDOW\+\_\+\+BLACKMAN\+\_\+\+HARRIS}}
+, \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a}{WINDOW\+\_\+\+FLAT\+\_\+\+TOP}}
+ \}
+\begin{DoxyCompactList}\small\item\em Window mode enumerations. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Function Documentation}
-\Hypertarget{dft_8h_a78593809eed625d3384a352b3c6945e3}\label{dft_8h_a78593809eed625d3384a352b3c6945e3} 
-\index{dft.h@{dft.h}!calloc\_output\_N@{calloc\_output\_N}}
-\index{calloc\_output\_N@{calloc\_output\_N}!dft.h@{dft.h}}
-\doxysubsubsection{\texorpdfstring{calloc\_output\_N()}{calloc\_output\_N()}}
-{\footnotesize\ttfamily double complex \texorpdfstring{$\ast$}{*} calloc\+\_\+output\+\_\+N (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{dft_8h_a4db69d3373ffa5ccb87a712c91578507}\label{dft_8h_a4db69d3373ffa5ccb87a712c91578507} 
+\index{dft.h@{dft.h}!algorithmMode@{algorithmMode}}
+\index{algorithmMode@{algorithmMode}!dft.h@{dft.h}}
+\doxysubsubsection{\texorpdfstring{algorithmMode}{algorithmMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507}{algorithm\+Mode}}}
 
 
 
-Allocates output array for DFT results, length is same as input N. 
+Algorithm mode enumerations. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em N} & Length of input sequence \\
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALG\_MODE\_UNKNOWN@{ALG\_MODE\_UNKNOWN}!dft.h@{dft.h}}\index{dft.h@{dft.h}!ALG\_MODE\_UNKNOWN@{ALG\_MODE\_UNKNOWN}}}\Hypertarget{dft_8h_a4db69d3373ffa5ccb87a712c91578507afde9d0db15f1a108c7ad19a4dc0622cb}\label{dft_8h_a4db69d3373ffa5ccb87a712c91578507afde9d0db15f1a108c7ad19a4dc0622cb} 
+ALG\+\_\+\+MODE\+\_\+\+UNKNOWN&\\
 \hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-double\texorpdfstring{$\ast$}{*} Returns allocated sequence 
-\end{DoxyReturn}
-\Hypertarget{dft_8h_adf55a2d385bbaf2d7e27394c15fc83b8}\label{dft_8h_adf55a2d385bbaf2d7e27394c15fc83b8} 
-\index{dft.h@{dft.h}!calloc\_output\_pow2@{calloc\_output\_pow2}}
-\index{calloc\_output\_pow2@{calloc\_output\_pow2}!dft.h@{dft.h}}
-\doxysubsubsection{\texorpdfstring{calloc\_output\_pow2()}{calloc\_output\_pow2()}}
-{\footnotesize\ttfamily double complex \texorpdfstring{$\ast$}{*} calloc\+\_\+output\+\_\+pow2 (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int \texorpdfstring{$\ast$}{*}}]{new\+\_\+length }\end{DoxyParamCaption})}
 
-
-
-Allocates output array for for DFT results, length is 2\texorpdfstring{$^\wedge$}{\string^}v for the nearest power of two greater than N. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em N} & Length of input sequence \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALG\_MODE\_DIRECT@{ALG\_MODE\_DIRECT}!dft.h@{dft.h}}\index{dft.h@{dft.h}!ALG\_MODE\_DIRECT@{ALG\_MODE\_DIRECT}}}\Hypertarget{dft_8h_a4db69d3373ffa5ccb87a712c91578507a396731635dfcb4c88d3832578e8674ec}\label{dft_8h_a4db69d3373ffa5ccb87a712c91578507a396731635dfcb4c88d3832578e8674ec} 
+ALG\+\_\+\+MODE\+\_\+\+DIRECT&\\
 \hline
-{\em new\+\_\+length} & Length of allocated sequence \\
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALG\_MODE\_FFT@{ALG\_MODE\_FFT}!dft.h@{dft.h}}\index{dft.h@{dft.h}!ALG\_MODE\_FFT@{ALG\_MODE\_FFT}}}\Hypertarget{dft_8h_a4db69d3373ffa5ccb87a712c91578507a59ba1da1de6c07e8b7599fbddf6218e8}\label{dft_8h_a4db69d3373ffa5ccb87a712c91578507a59ba1da1de6c07e8b7599fbddf6218e8} 
+ALG\+\_\+\+MODE\+\_\+\+FFT&\\
 \hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-double\texorpdfstring{$\ast$}{*} Returns allocated sequence 
-\end{DoxyReturn}
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALG\_MODE\_IFFT@{ALG\_MODE\_IFFT}!dft.h@{dft.h}}\index{dft.h@{dft.h}!ALG\_MODE\_IFFT@{ALG\_MODE\_IFFT}}}\Hypertarget{dft_8h_a4db69d3373ffa5ccb87a712c91578507a45bfce5fb203c95383081ac78914ef78}\label{dft_8h_a4db69d3373ffa5ccb87a712c91578507a45bfce5fb203c95383081ac78914ef78} 
+ALG\+\_\+\+MODE\+\_\+\+IFFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALG\_MODE\_GOERTZEL@{ALG\_MODE\_GOERTZEL}!dft.h@{dft.h}}\index{dft.h@{dft.h}!ALG\_MODE\_GOERTZEL@{ALG\_MODE\_GOERTZEL}}}\Hypertarget{dft_8h_a4db69d3373ffa5ccb87a712c91578507a491068cfe2f06017138d096025dbcbd6}\label{dft_8h_a4db69d3373ffa5ccb87a712c91578507a491068cfe2f06017138d096025dbcbd6} 
+ALG\+\_\+\+MODE\+\_\+\+GOERTZEL&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{dft_8h_a3e02ae24afd0ca42c3438d353e479c1c}\label{dft_8h_a3e02ae24afd0ca42c3438d353e479c1c} 
+\index{dft.h@{dft.h}!outputMode@{outputMode}}
+\index{outputMode@{outputMode}!dft.h@{dft.h}}
+\doxysubsubsection{\texorpdfstring{outputMode}{outputMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1c}{output\+Mode}}}
+
+
+
+Output mode enumerations. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_UNKNOWN@{OUTPUT\_UNKNOWN}!dft.h@{dft.h}}\index{dft.h@{dft.h}!OUTPUT\_UNKNOWN@{OUTPUT\_UNKNOWN}}}\Hypertarget{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca7825ae50ec73e929c7a9345d1cc86184}\label{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca7825ae50ec73e929c7a9345d1cc86184} 
+OUTPUT\+\_\+\+UNKNOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_TXT@{OUTPUT\_TXT}!dft.h@{dft.h}}\index{dft.h@{dft.h}!OUTPUT\_TXT@{OUTPUT\_TXT}}}\Hypertarget{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca02a066456d3edff83944e30f1482b8bc}\label{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca02a066456d3edff83944e30f1482b8bc} 
+OUTPUT\+\_\+\+TXT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_CSV@{OUTPUT\_CSV}!dft.h@{dft.h}}\index{dft.h@{dft.h}!OUTPUT\_CSV@{OUTPUT\_CSV}}}\Hypertarget{dft_8h_a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed}\label{dft_8h_a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed} 
+OUTPUT\+\_\+\+CSV&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_BIN@{OUTPUT\_BIN}!dft.h@{dft.h}}\index{dft.h@{dft.h}!OUTPUT\_BIN@{OUTPUT\_BIN}}}\Hypertarget{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe}\label{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe} 
+OUTPUT\+\_\+\+BIN&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{dft_8h_af58674327d6ad2c7b5f639ac32a36f7c}\label{dft_8h_af58674327d6ad2c7b5f639ac32a36f7c} 
+\index{dft.h@{dft.h}!windowMode@{windowMode}}
+\index{windowMode@{windowMode}!dft.h@{dft.h}}
+\doxysubsubsection{\texorpdfstring{windowMode}{windowMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7c}{window\+Mode}}}
+
+
+
+Window mode enumerations. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_UNKNOWN@{WINDOW\_UNKNOWN}!dft.h@{dft.h}}\index{dft.h@{dft.h}!WINDOW\_UNKNOWN@{WINDOW\_UNKNOWN}}}\Hypertarget{dft_8h_af58674327d6ad2c7b5f639ac32a36f7caebc637c60fdebba52fd149863463abda}\label{dft_8h_af58674327d6ad2c7b5f639ac32a36f7caebc637c60fdebba52fd149863463abda} 
+WINDOW\+\_\+\+UNKNOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_HANNING@{WINDOW\_HANNING}!dft.h@{dft.h}}\index{dft.h@{dft.h}!WINDOW\_HANNING@{WINDOW\_HANNING}}}\Hypertarget{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da}\label{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da} 
+WINDOW\+\_\+\+HANNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_HAMMING@{WINDOW\_HAMMING}!dft.h@{dft.h}}\index{dft.h@{dft.h}!WINDOW\_HAMMING@{WINDOW\_HAMMING}}}\Hypertarget{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc}\label{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc} 
+WINDOW\+\_\+\+HAMMING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_KAISER@{WINDOW\_KAISER}!dft.h@{dft.h}}\index{dft.h@{dft.h}!WINDOW\_KAISER@{WINDOW\_KAISER}}}\Hypertarget{dft_8h_af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc}\label{dft_8h_af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc} 
+WINDOW\+\_\+\+KAISER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_BLACKMAN\_HARRIS@{WINDOW\_BLACKMAN\_HARRIS}!dft.h@{dft.h}}\index{dft.h@{dft.h}!WINDOW\_BLACKMAN\_HARRIS@{WINDOW\_BLACKMAN\_HARRIS}}}\Hypertarget{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949}\label{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949} 
+WINDOW\+\_\+\+BLACKMAN\+\_\+\+HARRIS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINDOW\_FLAT\_TOP@{WINDOW\_FLAT\_TOP}!dft.h@{dft.h}}\index{dft.h@{dft.h}!WINDOW\_FLAT\_TOP@{WINDOW\_FLAT\_TOP}}}\Hypertarget{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a}\label{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a} 
+WINDOW\+\_\+\+FLAT\+\_\+\+TOP&\\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['complex_5fdata_0',['complex_data',['../namespacegraph.html#ae237c653aa24fd0fcd8c4727eab19630',1,'graph']]]
+  ['input_5ffile_5fname_0',['input_file_name',['../structCliConfiguration.html#a8f4121aa4927dbc494219b65794112cc',1,'CliConfiguration']]]
 ];

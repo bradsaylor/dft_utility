@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['raw_0',['raw',['../namespacegraph.html#a8280a2d0e07353882149d3aaea4047ed',1,'graph']]]
+  ['sampling_5ffreq_0',['sampling_freq',['../structCliConfiguration.html#a2f75b911b5f85820da9caf42f8307158',1,'CliConfiguration']]]
 ];

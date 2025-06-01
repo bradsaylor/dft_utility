@@ -5,12 +5,44 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DFT\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DFT\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <complex.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00014\ \textcolor{keywordtype}{double}\ complex\ *\mbox{\hyperlink{dft_8h_adf55a2d385bbaf2d7e27394c15fc83b8}{calloc\_output\_pow2}}(\textcolor{keywordtype}{int}\ N,\ \textcolor{keywordtype}{int}\ *new\_length);}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{double}\ complex\ *\mbox{\hyperlink{dft_8h_a78593809eed625d3384a352b3c6945e3}{calloc\_output\_N}}(\textcolor{keywordtype}{int}\ N);}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DFT\_H}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structProgramConfig_aca749ab156773d6578687bb462491ab5}{MAX\_INPUT}};}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structProgramConfig_a319768d7c368252c0e67ad6c82dd04d6}{output\_dir}};}
+\DoxyCodeLine{00013\ \}\ \mbox{\hyperlink{structProgramConfig}{ProgramConfig}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507afde9d0db15f1a108c7ad19a4dc0622cb}{ALG\_MODE\_UNKNOWN}},}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507a396731635dfcb4c88d3832578e8674ec}{ALG\_MODE\_DIRECT}},}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507a59ba1da1de6c07e8b7599fbddf6218e8}{ALG\_MODE\_FFT}},}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507a45bfce5fb203c95383081ac78914ef78}{ALG\_MODE\_IFFT}},}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507a491068cfe2f06017138d096025dbcbd6}{ALG\_MODE\_GOERTZEL}},}
+\DoxyCodeLine{00025\ \}\ \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507}{algorithmMode}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca7825ae50ec73e929c7a9345d1cc86184}{OUTPUT\_UNKNOWN}},\ \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca02a066456d3edff83944e30f1482b8bc}{OUTPUT\_TXT}},\ \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1cabc0eb421c1ac9cc221a214f8572d6aed}{OUTPUT\_CSV}},\ \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1ca2319f1002364d6bbaaa2966ef6758cfe}{OUTPUT\_BIN}}\ \}\ \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1c}{outputMode}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7caebc637c60fdebba52fd149863463abda}{WINDOW\_UNKNOWN}},}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca9a61cea418d9be54cd6a1e06e44465da}{WINDOW\_HANNING}},}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca54f7411de0bcc46ce1980fa548682cbc}{WINDOW\_HAMMING}},}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7cafcc0aa2809edecb036e47cbfb562bddc}{WINDOW\_KAISER}},}
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca726916e746a2fd805700abb7ccc38949}{WINDOW\_BLACKMAN\_HARRIS}},}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7ca8fbc69d712bd593b4560cb6e952f379a}{WINDOW\_FLAT\_TOP}},}
+\DoxyCodeLine{00044\ \}\ \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7c}{windowMode}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{char}\ input\_file\_name[50];}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{char}\ output\_file\_name[50];}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{dft_8h_a4db69d3373ffa5ccb87a712c91578507}{algorithmMode}}\ \mbox{\hyperlink{structCliConfiguration_a308a3192f22b77cc8a8e9fce5143f6e2}{algorithm\_mode}};}
+\DoxyCodeLine{00054\ \ \ \mbox{\hyperlink{dft_8h_a3e02ae24afd0ca42c3438d353e479c1c}{outputMode}}\ \mbox{\hyperlink{structCliConfiguration_a431ef1634372d84c6f024a8cb6c350fd}{output\_mode}};}
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{dft_8h_af58674327d6ad2c7b5f639ac32a36f7c}{windowMode}}\ \mbox{\hyperlink{structCliConfiguration_a0e6fd7d88f4f76a8991f66ee7f29cda6}{window\_mode}};}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structCliConfiguration_a33913b147fc0252d3a8820854283241c}{window\_param}};}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCliConfiguration_a0d24be1801da78e0d909a9b03cdacaf3}{output\_source}};}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structCliConfiguration_a2f75b911b5f85820da9caf42f8307158}{sampling\_freq}};}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCliConfiguration_a1397d435c119b6598c072675b26bfacb}{write\_meta}};}
+\DoxyCodeLine{00060\ \}\ \mbox{\hyperlink{structCliConfiguration}{CliConfiguration}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DFT\_H}}
 
 \end{DoxyCode}

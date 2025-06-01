@@ -16,10 +16,10 @@ int ifft_dit(double complex *signal, double complex *signal_out, int N_in,
 
 /**
  * @brief Return conjugate of signal
- * 
+ *
  * @param signal Input signal
  * @param N Size of input signal
- * @return int 
+ * @return int
  */
 int conjugate_signal(double complex *signal, int N);
 

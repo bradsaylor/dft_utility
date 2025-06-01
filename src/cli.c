@@ -101,18 +101,31 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
 
       } else if (!strcmp("--fs", argv[i])) {
         if (argc < i + 1) {
-          printf("Missing sampleing frequency parameter\n");
+          printf("Missing sampling frequency parameter\n");
           print_usage_help();
           return 1;
         }
         cli_config->sampling_freq = atof(argv[i + 1]);
         i++;
+
+      } else if(!strcmp("--dft-length", argv[i])){
+        if (argc < i + 1){
+          printf("Missing dft length parameter\n");
+          return 1;
+        }
+        cli_config->requested_length = atoi(argv[i+1]);
+        i++;
+
       } else if (!strcmp("--output-source", argv[i])) {
         cli_config->output_source = 1;
 
       } else if (!strcmp("--write-meta", argv[i])) {
         cli_config->write_meta = 1;
-      } else {
+
+      } else if(!strcmp("--truncate-ok", argv[i])){
+        cli_config->truncate_ok = true;
+
+      }else {
         printf("\nInvalid option: %s\n", argv[i]);
         print_usage_help();
         return 1;
@@ -143,5 +156,18 @@ int print_usage_help() {
   printf("      ksr:\tApply Kaiser window\n");
   printf("      bhs:\tApply Blackman-Harris window\n");
   printf("      flt:\tApply flat top window\n");
+  printf("  --window-parameter");
+  printf("      [double]: Beta parameter for Kaiser window, default=6.80");
+  printf("  --fs\n");
+  printf("      [int]: Sampling frequency");
+  printf("  --dft-length\n");
+  printf("      [int]: Requested DFT output length");
+  printf("  --output-source\n");
+  printf("      Write source file along with output file");
+  printf("  --write-meta\n");
+  printf("      Output accompanying .json file with configuration details");
+  printf("  --truncate-ok\n");
+  printf("      Allow truncation of input to satisfy requested dft length");
+
   return 0;
 }
