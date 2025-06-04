@@ -139,35 +139,35 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
 int print_usage_help() {
   printf("\nUsage: ");
   printf(
-      "./dft [../path/to/input/file] [output filename] --option value ...\n");
+      "./dft [../path/to/input/file] [output filename] --option value ...\n\n");
   printf("Options:\n");
   printf("  --output-mode\n");
   printf("      csv:\tOutput in CSV format\n");
   printf("      txt:\tOutput in ASCII text\n");
-  printf("      bin:\tOutput in binary format\n");
+  printf("      bin:\tOutput in binary format\n\n");
   printf("  --alg-mode\n");
   printf("      direct:\tCalculate DFT directly\n");
   printf("      fft:\tCalculate FFT using decimation in time algorithm\n");
   printf("      ifft:\tCalculate IFFT using decimation in time algroithm\n");
-  printf("      gtz:\tCalculate DFT using Goertzel algorithm\n");
+  printf("      gtz:\tCalculate DFT using Goertzel algorithm\n\n");
   printf("  --window-mode\n");
   printf("      han:\tApply Hanning window\n");
   printf("      ham:\tApply Hamming window\n");
   printf("      ksr:\tApply Kaiser window\n");
   printf("      bhs:\tApply Blackman-Harris window\n");
-  printf("      flt:\tApply flat top window\n");
-  printf("  --window-parameter");
-  printf("      [double]: Beta parameter for Kaiser window, default=6.80");
+  printf("      flt:\tApply flat top window\n\n");
+  printf("  --window-parameter\n");
+  printf("      xxx:\t[double] Beta parameter for Kaiser window, default=6.80\n\n");
   printf("  --fs\n");
-  printf("      [int]: Sampling frequency");
+  printf("      xxx:\t[int] Sampling frequency\n\n");
   printf("  --dft-length\n");
-  printf("      [int]: Requested DFT output length");
+  printf("      xxx:\t[int] Requested DFT output length\n\n");
   printf("  --output-source\n");
-  printf("      Write source file along with output file");
+  printf("      \t\tAlso write source file in specified mode\n\n");
   printf("  --write-meta\n");
-  printf("      Output accompanying .json file with configuration details");
+  printf("      \t\tOutput accompanying .json file with configuration details\n\n");
   printf("  --truncate-ok\n");
-  printf("      Allow truncation of input to satisfy requested dft length");
+  printf("      \t\tAllow truncation of input to satisfy requested dft length\n\n");
 
   return 0;
 }

@@ -36,4 +36,5 @@ int pow2 = 20;
  */
 uint32_t bit_reverse(uint32_t num, int N);
 
+
 #endif  // MAKE_FFT_REVERSE_INDEX_H

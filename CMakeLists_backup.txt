@@ -55,15 +55,6 @@ add_custom_command(
   COMMENT "Generating fft_twiddle_factor_LUT"
 )
 
-# === Create a target that groups generated files
-add_custom_target(generate_luts ALL
-  DEPENDS
-    ${GEN_SRC_DIR}/fft_reverse_index_LUT.c
-    ${GEN_INC_DIR}/fft_reverse_index_LUT.h
-    ${GEN_SRC_DIR}/fft_twiddle_factor_LUT.c
-    ${GEN_INC_DIR}/fft_twiddle_factor_LUT.h
-)
-
 # === Source files (excluding generator .c files)
 file(GLOB SRC_FILES CONFIGURE_DEPENDS ${SRC_DIR}/*.c)
 
@@ -76,4 +67,4 @@ add_executable(dft_util
 target_link_libraries(dft_util m)
 
 # === Ensure dft_util depends on generated files
-add_dependencies(dft_util generate_luts)
+add_dependencies(dft_util gen_index gen_twiddle)

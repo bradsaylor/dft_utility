@@ -25,7 +25,8 @@
 #include "../include/ifft_dit.h"
 #include "../include/meta_file.h"
 #include "../include/output.h"
-#include "../include/read_sequencev2.h"
+#include "../include/pad_truncate.h"
+#include "../include/read_sequence.h"
 #include "../include/window.h"
 
 int main(int argc, char *argv[]) {
@@ -33,6 +34,7 @@ int main(int argc, char *argv[]) {
   CliConfiguration cli_config = {0};
   size_t input_length = 0;
   size_t output_length = 0;
+  int return_ok = 0;
   complex double *input_signal = NULL;
   complex double *output_signal = NULL;
 
@@ -48,17 +50,28 @@ int main(int argc, char *argv[]) {
   printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu\n",
          input_length * sizeof(double complex), input_length);
 
+  output_length = set_dft_length(input_length, &cli_config, &output_signal);
+  if (!output_length) {
+    printf("Could not set output length\n");
+    return 1;
+  }
+  if (cli_config.requested_length) {
+    if (pad_and_truncate(&input_signal, cli_config.requested_length,
+                         input_length)) {
+      printf("Failed Pad/Truncate operation.\n");
+      return 1;
+    }
+  }
+
   // Perform windowing
   if (cli_config.window_mode) {
     window(input_signal, input_length, cli_config.window_mode,
            cli_config.window_param);
   }
 
-  output_length = set_dft_length(input_length, &cli_config, &output_signal);
-
   // Compute the DFT
-  dft_algorithms(cli_config.algorithm_mode, output_length,
-                                 input_length, input_signal, &output_signal);
+  dft_algorithms(cli_config.algorithm_mode, output_length, input_length,
+                 input_signal, &output_signal);
 
   // Output to file
   write_output_file(cli_config.output_file_name, program_config.output_dir,
@@ -77,8 +90,8 @@ int main(int argc, char *argv[]) {
   }
 
   // Free allocated memory
-  free(input_signal);
   free(output_signal);
+  free(input_signal);
 
   return 0;
 }

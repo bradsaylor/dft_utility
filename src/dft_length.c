@@ -17,13 +17,13 @@ int set_dft_length(size_t input_length, CliConfiguration *cli_config,
           "Input legth is longer than requested dft length, set --truncate-ok "
           "to "
           "bypass\n");
-      return 1;
+      return 0;
     }
 
     if ((alg_mode == ALG_MODE_FFT) || (alg_mode == ALG_MODE_IFFT)) {
       if ((int)log2(requested_length) != log2(requested_length)) {
         printf("FFT and IFFT modes require input length of 2^n\n");
-        return 1;
+        return 0;
       } else {
         // VERIFY call calloc N func with requested length
         output_length = requested_length;
@@ -42,7 +42,7 @@ int set_dft_length(size_t input_length, CliConfiguration *cli_config,
     } else {
       // VERIFY call N calloc
       output_length = input_length;
-      *output_signal = calloc_output_N(requested_length);
+      *output_signal = calloc_output_N(output_length);
     }
   }
 

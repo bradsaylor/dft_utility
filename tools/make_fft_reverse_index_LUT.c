@@ -17,6 +17,8 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <sys/stat.h>
 
 uint32_t bit_reverse(uint32_t num, int N) {
   uint32_t rev_num = 0;
