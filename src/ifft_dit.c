@@ -15,7 +15,8 @@
 
 #include "../include/fft_dit.h"
 
-int ifft_dit(double complex *signal, double complex *signal_out, size_t output_length) {
+int ifft_dit(double complex *signal, double complex *signal_out,
+             size_t output_length) {
   conjugate_signal(signal, output_length);
   fft_dit(signal, signal_out, output_length);
   conjugate_signal(signal_out, output_length);

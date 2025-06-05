@@ -14,6 +14,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * @brief Print command usage and option information
+ *
+ * @return int
+ */
+int print_usage_help();
+
 int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
   if (argc < 3) {
     printf("\nError parsing command line, insufficient number of arguments.\n");
@@ -108,12 +115,12 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
         cli_config->sampling_freq = atof(argv[i + 1]);
         i++;
 
-      } else if(!strcmp("--dft-length", argv[i])){
-        if (argc < i + 1){
+      } else if (!strcmp("--dft-length", argv[i])) {
+        if (argc < i + 1) {
           printf("Missing dft length parameter\n");
           return 1;
         }
-        cli_config->requested_length = atoi(argv[i+1]);
+        cli_config->requested_length = atoi(argv[i + 1]);
         i++;
 
       } else if (!strcmp("--output-source", argv[i])) {
@@ -122,10 +129,10 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       } else if (!strcmp("--write-meta", argv[i])) {
         cli_config->write_meta = 1;
 
-      } else if(!strcmp("--truncate-ok", argv[i])){
+      } else if (!strcmp("--truncate-ok", argv[i])) {
         cli_config->truncate_ok = true;
 
-      }else {
+      } else {
         printf("\nInvalid option: %s\n", argv[i]);
         print_usage_help();
         return 1;
@@ -157,7 +164,9 @@ int print_usage_help() {
   printf("      bhs:\tApply Blackman-Harris window\n");
   printf("      flt:\tApply flat top window\n\n");
   printf("  --window-parameter\n");
-  printf("      xxx:\t[double] Beta parameter for Kaiser window, default=6.80\n\n");
+  printf(
+      "      xxx:\t[double] Beta parameter for Kaiser window, "
+      "default=8.60\n\n");
   printf("  --fs\n");
   printf("      xxx:\t[int] Sampling frequency\n\n");
   printf("  --dft-length\n");
@@ -165,9 +174,13 @@ int print_usage_help() {
   printf("  --output-source\n");
   printf("      \t\tAlso write source file in specified mode\n\n");
   printf("  --write-meta\n");
-  printf("      \t\tOutput accompanying .json file with configuration details\n\n");
+  printf(
+      "      \t\tOutput accompanying .json file with configuration "
+      "details\n\n");
   printf("  --truncate-ok\n");
-  printf("      \t\tAllow truncation of input to satisfy requested dft length\n\n");
+  printf(
+      "      \t\tAllow truncation of input to satisfy requested dft "
+      "length\n\n");
 
   return 0;
 }

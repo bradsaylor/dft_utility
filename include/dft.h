@@ -1,8 +1,8 @@
 #ifndef DFT_H
 #define DFT_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 
 /**
  * @brief Struct holding program config parameters

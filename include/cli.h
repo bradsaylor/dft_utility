@@ -13,11 +13,4 @@
  */
 int parse_cli(int argc, char *argv[], CliConfiguration *cli_config);
 
-/**
- * @brief Print command usage and option information
- *
- * @return int
- */
-int print_usage_help();
-
 #endif  // CLI_H

@@ -4,6 +4,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * @brief Allocates output array for for DFT results,
+ * length is 2^v for the nearest power of two greater than N
+ *
+ * @param N Length of input sequence
+ * @param new_length Length of allocated sequence
+ * @return double* Returns allocated sequence
+ */
+double complex *calloc_output_pow2(size_t N, size_t *new_length);
+
+/**
+ * @brief Allocates output array for DFT results,
+ * length is same as input N.
+ *
+ * @param N Length of input sequence
+ * @return double* Returns allocated sequence
+ */
+double complex *calloc_output_N(size_t N);
+
 int set_dft_length(size_t input_length, CliConfiguration *cli_config,
                    double complex **output_signal) {
   size_t output_length = 0;
@@ -25,22 +44,18 @@ int set_dft_length(size_t input_length, CliConfiguration *cli_config,
         printf("FFT and IFFT modes require input length of 2^n\n");
         return 0;
       } else {
-        // VERIFY call calloc N func with requested length
         output_length = requested_length;
         *output_signal = calloc_output_N(requested_length);
       }
 
     } else {
-      // VERIFY call calloc N func with requested length
       output_length = requested_length;
       *output_signal = calloc_output_N(requested_length);
     }
   } else {
     if ((alg_mode == ALG_MODE_FFT) || (alg_mode == ALG_MODE_IFFT)) {
-      // VERIFY call pow2 calloc
       *output_signal = calloc_output_pow2(input_length, &output_length);
     } else {
-      // VERIFY call N calloc
       output_length = input_length;
       *output_signal = calloc_output_N(output_length);
     }

@@ -4,18 +4,38 @@
 #include <stdlib.h>
 #include <string.h>
 
+int read_complex_text(const char *filename, double complex **data_out,
+                      size_t *len_out, const size_t MAX_INPUT);
+
+int read_complex_csv(const char *filename, double complex **data_out,
+                     size_t *len_out, const size_t MAX_INPUT);
+
+int read_complex_bin(const char *filename, double complex **data_out,
+                     size_t *len_out, const size_t MAX_INPUT);
+
 int read_sequence(const char *filename, double complex **data_out,
                   size_t *len_out, const size_t MAX_INPUT) {
   const char *ext = strrchr(filename, '.');
   if (!ext) return -1;
 
   if (strcmp(ext, ".bin") == 0) {
-    return read_complex_bin(filename, data_out, len_out, MAX_INPUT);
+    if (read_complex_bin(filename, data_out, len_out, MAX_INPUT)) {
+      printf("Error reading BIN file.\n");
+      return -1;
+    }
   } else if (strcmp(ext, ".csv") == 0) {
-    return read_complex_csv(filename, data_out, len_out, MAX_INPUT);
+    if (read_complex_csv(filename, data_out, len_out, MAX_INPUT)) {
+      printf("Error reading CSV file.\n");
+      return -1;
+    }
   } else {
-    return read_complex_text(filename, data_out, len_out, MAX_INPUT);
+    if (read_complex_text(filename, data_out, len_out, MAX_INPUT)) {
+      printf("Error reading TXT file\n");
+      return -1;
+    }
   }
+
+  return 0;
 }
 
 int read_complex_text(const char *filename, double complex **data_out,

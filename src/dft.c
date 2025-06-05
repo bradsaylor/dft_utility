@@ -44,8 +44,11 @@ int main(int argc, char *argv[]) {
   }
 
   // Read the input sequence from a file
-  read_sequence(cli_config.input_file_name, &input_signal, &input_length,
-                program_config.MAX_INPUT);
+  if (read_sequence(cli_config.input_file_name, &input_signal, &input_length,
+                    program_config.MAX_INPUT)) {
+    printf("Could not read input sequence\n");
+    return -1;
+  }
 
   printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu\n",
          input_length * sizeof(double complex), input_length);
@@ -55,6 +58,7 @@ int main(int argc, char *argv[]) {
     printf("Could not set output length\n");
     return 1;
   }
+
   if (cli_config.requested_length) {
     if (pad_and_truncate(&input_signal, cli_config.requested_length,
                          input_length)) {
@@ -74,19 +78,28 @@ int main(int argc, char *argv[]) {
                  input_signal, &output_signal);
 
   // Output to file
-  write_output_file(cli_config.output_file_name, program_config.output_dir,
-                    cli_config.output_mode, output_signal, output_length);
+  if (write_output_file(cli_config.output_file_name, program_config.output_dir,
+                        cli_config.output_mode, output_signal, output_length)) {
+    printf("Error could not write output file\n");
+    return -1;
+  }
 
   if (cli_config.output_source) {
     char src_out_name[50] = {0};
     strcat(src_out_name, "src_");
     strcat(src_out_name, cli_config.output_file_name);
-    write_output_file(src_out_name, program_config.output_dir,
-                      cli_config.output_mode, input_signal, input_length);
+    if (write_output_file(src_out_name, program_config.output_dir,
+                          cli_config.output_mode, input_signal, input_length)) {
+      printf("Error could not write source file.\n");
+      return -1;
+    }
   }
 
   if (cli_config.write_meta) {
-    write_meta_file(&program_config, &cli_config, output_length);
+    if (write_meta_file(&program_config, &cli_config, output_length)) {
+      printf("Error could not write meta file\n");
+      return -1;
+    }
   }
 
   // Free allocated memory

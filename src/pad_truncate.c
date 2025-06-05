@@ -10,10 +10,10 @@ int truncate_signal(double complex **input_signal, size_t requested_length);
 int pad_and_truncate(double complex **input_signal, size_t requested_length,
                      size_t input_length) {
   if (input_length < requested_length) {
-    if(pad_signal(input_signal, requested_length, input_length)) return 1;
-    
+    if (pad_signal(input_signal, requested_length, input_length)) return 1;
+
   } else if (input_length > requested_length) {
-    if(truncate_signal(input_signal, requested_length)) return 1;
+    if (truncate_signal(input_signal, requested_length)) return 1;
   }
 
   return 0;

@@ -8,13 +8,22 @@ int write_output_file(char *output_filename, const char *output_dir,
                       int output_length) {
   switch (output_mode) {
     case (OUTPUT_CSV):
-      write_CSV(output_filename, output_dir, output_sequence, output_length);
+      if(write_CSV(output_filename, output_dir, output_sequence, output_length)){
+        printf("Could not write output CSV file.\n");
+        return -1;
+      }
       break;
     case (OUTPUT_TXT):
-      write_TXT(output_filename, output_dir, output_sequence, output_length);
+      if(write_TXT(output_filename, output_dir, output_sequence, output_length)){
+        printf("Could not write output TXT file.\n");
+        return -1;
+      }
       break;
     case (OUTPUT_BIN):
-      write_BIN(output_filename, output_dir, output_sequence, output_length);
+      if(write_BIN(output_filename, output_dir, output_sequence, output_length)){
+        printf("Could not write output BIN file.\n");
+        return -1;
+      }
       break;
     default:
       break;

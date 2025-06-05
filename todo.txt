@@ -1,10 +1,16 @@
 TODO
+* Implement testing framework and tests
+
+--------DONE--------------------
+
 * : Implement algorithms as interface
     * verify
     * done 
-* Implement testing framework and tests
 * Implement waveform plotting
     * verify
+    * done
 * Implement user defined DFT length
-
+    * done
+* Change structure to interface based
+    * done
 
