@@ -11,14 +11,16 @@
 #include "../include/direct_dft.h"
 
 #include <complex.h>
-#include <math.h>
+
+#include "../include/logs.h"
 
 int direct_dft(double complex *signal, double complex *signal_out, int N) {
+  log_out(LOG_INFO, "Applying direct DFT algorithm.");
   for (int k = 0; k < N; k++) {
     for (int n = 0; n < N; n++) {
       signal_out[k] += signal[n] * cexp(-2 * PI * I * k * n / N);
     }
   }
-
+  log_out(LOG_INFO, "Applied direct DFT algorithm successfully");
   return 0;
 }

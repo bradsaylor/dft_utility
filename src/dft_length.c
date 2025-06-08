@@ -1,4 +1,5 @@
 #include "../include/dft_length.h"
+#include "../include/logs.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -25,6 +26,8 @@ double complex *calloc_output_N(size_t N);
 
 int set_dft_length(size_t input_length, CliConfiguration *cli_config,
                    double complex **output_signal) {
+  
+  log_out(LOG_INFO, "Setting DFT length.");
   size_t output_length = 0;
   algorithmMode alg_mode = cli_config->algorithm_mode;
   size_t requested_length = cli_config->requested_length;
@@ -60,7 +63,7 @@ int set_dft_length(size_t input_length, CliConfiguration *cli_config,
       *output_signal = calloc_output_N(output_length);
     }
   }
-
+log_out(LOG_INFO, "DFT output length determined successfully.");
   return output_length;
 }
 

@@ -11,7 +11,6 @@
 #include "../include/dft.h"
 
 #include <complex.h>
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,10 +18,6 @@
 #include "../include/algorithms.h"
 #include "../include/cli.h"
 #include "../include/dft_length.h"
-#include "../include/direct_dft.h"
-#include "../include/fft_dit.h"
-#include "../include/gtzl_dft.h"
-#include "../include/ifft_dit.h"
 #include "../include/meta_file.h"
 #include "../include/output.h"
 #include "../include/pad_truncate.h"
@@ -40,16 +35,18 @@ int main(int argc, char *argv[]) {
 
   // Read and parse command line input
   if (parse_cli(argc, argv, &cli_config)) {
+    printf("Could not parse command line input");
     return 1;
   }
 
-  // Read the input sequence from a file
+  // Read the input sequence from file
   if (read_sequence(cli_config.input_file_name, &input_signal, &input_length,
                     program_config.MAX_INPUT)) {
     printf("Could not read input sequence\n");
     return -1;
   }
 
+  // Determine length of output sequence
   printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu\n",
          input_length * sizeof(double complex), input_length);
 
@@ -59,6 +56,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
+  // Pad or truncate input sequence as required
   if (cli_config.requested_length) {
     if (pad_and_truncate(&input_signal, cli_config.requested_length,
                          input_length)) {
@@ -73,17 +71,19 @@ int main(int argc, char *argv[]) {
            cli_config.window_param);
   }
 
-  // Compute the DFT
+  // Compute DFT
   dft_algorithms(cli_config.algorithm_mode, output_length, input_length,
                  input_signal, &output_signal);
 
   // Output to file
+  //
+  // Output DFT
   if (write_output_file(cli_config.output_file_name, program_config.output_dir,
                         cli_config.output_mode, output_signal, output_length)) {
     printf("Error could not write output file\n");
     return -1;
   }
-
+  // Output source file
   if (cli_config.output_source) {
     char src_out_name[50] = {0};
     strcat(src_out_name, "src_");
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
       return -1;
     }
   }
-
+  // Output meta file
   if (cli_config.write_meta) {
     if (write_meta_file(&program_config, &cli_config, output_length)) {
       printf("Error could not write meta file\n");

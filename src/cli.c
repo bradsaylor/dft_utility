@@ -14,6 +14,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../include/logs.h"
+
 /**
  * @brief Print command usage and option information
  *
@@ -22,6 +24,8 @@
 int print_usage_help();
 
 int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
+  log_out(LOG_INFO, "Parsing CLI input.");
+
   if (argc < 3) {
     printf("\nError parsing command line, insufficient number of arguments.\n");
     print_usage_help();
@@ -139,6 +143,7 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       }
     }
   }
+  log_out(LOG_INFO, "Successfully parsed cli input.");
 
   return 0;
 }

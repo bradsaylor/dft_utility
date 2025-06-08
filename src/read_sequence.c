@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../include/logs.h"
+
 int read_complex_text(const char *filename, double complex **data_out,
                       size_t *len_out, const size_t MAX_INPUT);
 
@@ -35,11 +37,14 @@ int read_sequence(const char *filename, double complex **data_out,
     }
   }
 
+  log_out(LOG_INFO, "Input file read successfully.");
+
   return 0;
 }
 
 int read_complex_text(const char *filename, double complex **data_out,
                       size_t *len_out, const size_t MAX_INPUT) {
+  log_out(LOG_INFO, "Reading %s.", filename);
   FILE *file = fopen(filename, "r");
   if (!file) return -1;
 
@@ -80,6 +85,7 @@ int read_complex_text(const char *filename, double complex **data_out,
 
 int read_complex_csv(const char *filename, double complex **data_out,
                      size_t *len_out, const size_t MAX_INPUT) {
+  log_out(LOG_INFO, "Reading %s.", filename);
   FILE *file = fopen(filename, "r");
   if (!file) return -1;
 
@@ -119,10 +125,12 @@ int read_complex_csv(const char *filename, double complex **data_out,
 
   *data_out = data;
   *len_out = count;
+  return 0;
 }
 
 int read_complex_bin(const char *filename, double complex **data_out,
                      size_t *len_out, const size_t MAX_INPUT) {
+  log_out(LOG_INFO, "Reading %s.", filename);
   FILE *file = fopen(filename, "rb");
   if (!file) return -1;
 

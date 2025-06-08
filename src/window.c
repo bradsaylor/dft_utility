@@ -1,4 +1,5 @@
 #include "../include/window.h"
+#include "../include/logs.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -92,27 +93,33 @@ int window(double complex *signal, size_t signal_length, windowMode window_mode,
       printf("Invalid window type\n");
       return 1;
   }
+  log_out(LOG_INFO, "Window applied successfully.");
+  return 0;
 }
 
 int window_hanning(double complex *signal, size_t signal_length) {
+  log_out(LOG_INFO, "Applying Hanning window.");  
   double raised_cosine_coeffs[5] = {0.5, -0.5, 0, 0, 0};
   window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
 
 int window_hamming(double complex *signal, size_t signal_length) {
+  log_out(LOG_INFO, "Applying Hamming window.");
   double raised_cosine_coeffs[5] = {0.54, -0.46, 0, 0, 0};
   window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
 
 int window_blackman_harris(double complex *signal, size_t signal_length) {
+  log_out(LOG_INFO, "Applying Blackman-Harris window");
   double raised_cosine_coeffs[5] = {0.35875, -0.48829, 0.14128, -0.01168, 0};
   window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
 
 int window_flat_top(double complex *signal, size_t signal_length) {
+  log_out(LOG_INFO, "Applying flat top window.");
   double raised_cosine_coeffs[5] = {0.21557895, -.41663158, 0.277263158,
                                     -.083578947, 0.006947368};
   window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
@@ -132,6 +139,7 @@ int window_raised_cosine(double complex *signal, size_t signal_length,
 };
 
 int window_kaiser(double complex *signal, size_t signal_length, double beta) {
+  log_out(LOG_INFO, "Applying Kaiser window.");
   // If no beta requested set value to 8.6 for ~100dB side lobe attenuation
   if (beta == 0) {
     beta = 8.6;

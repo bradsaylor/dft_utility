@@ -11,13 +11,13 @@
 #include "../include/fft_dit.h"
 
 #include <math.h>
-#include <stdio.h>
-#include <string.h>
 
+#include "../include/logs.h"
 #include "../tools/generated/include/fft_reverse_index_LUT.h"
 #include "../tools/generated/include/fft_twiddle_factor_LUT.h"
 
 int fft_dit(double complex *signal, double complex *signal_out, int N) {
+  log_out(LOG_INFO, "Applying FFT algorithm.");
   int num_decims = (int)log2(N);  // Total number of decimation steps
 
   // Copy signal to output sequence in reversed bit order
@@ -29,6 +29,7 @@ int fft_dit(double complex *signal, double complex *signal_out, int N) {
   for (int i = 0; i < num_decims; i++) {
     calc_decimation_step(signal_out, num_decims, i + 1, N);
   }
+  log_out(LOG_INFO, "FFT algorithm applied successfully.");
   return 0;
 }
 

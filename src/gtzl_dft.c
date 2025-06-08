@@ -13,7 +13,10 @@
 #include <complex.h>
 #include <math.h>
 
+#include "../include/logs.h"
+
 int gtzl_dft(double complex *signal, double complex *signal_out, int N) {
+  log_out(LOG_INFO, "Applying Goertzel algorithm.");
   for (int k = 0; k < (N / 2 + 1); k++) {
     double complex s = 0;   // current state of recursion
     double complex s1 = 0;  // previous state of recursion
@@ -42,6 +45,6 @@ int gtzl_dft(double complex *signal, double complex *signal_out, int N) {
       signal_out[N - k] = sN - conj(Wk) * s;
     }
   }
-
+  log_out(LOG_INFO, "Applied Goertzel algorith successfully");
   return 0;
 }
