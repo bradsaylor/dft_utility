@@ -1,4 +1,5 @@
 #include "../include/output.h"
+#include "../include/logs.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -28,11 +29,13 @@ int write_output_file(char *output_filename, const char *output_dir,
     default:
       break;
   }
+  log_out(LOG_INFO, "Wrote %s successfully.", output_filename);
   return 0;
 }
 
 int write_CSV(char *output_filename, const char *output_dir,
               double complex *output_sequence, int output_length) {
+  log_out(LOG_INFO, "Writing %s as CSV.", output_filename);
   char output_path[50] = {0};
   strcat(output_path, output_dir);
   strcat(output_path, output_filename);
@@ -52,6 +55,7 @@ int write_CSV(char *output_filename, const char *output_dir,
 
 int write_TXT(char *output_filename, const char *output_dir,
               double complex *output_sequence, int output_length) {
+  log_out(LOG_INFO, "Writing %s as TXT.", output_filename);
   char output_path[50] = {0};
   strcat(output_path, output_dir);
   strcat(output_path, output_filename);
@@ -71,6 +75,7 @@ int write_TXT(char *output_filename, const char *output_dir,
 
 int write_BIN(char *output_filename, const char *output_dir,
               double complex *output_sequence, int output_length) {
+  log_out(LOG_INFO, "Writing %s as BIN.", output_filename);
   char output_path[50] = {0};
   strcat(output_path, output_dir);
   strcat(output_path, output_filename);

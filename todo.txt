@@ -1,5 +1,6 @@
 TODO
 * Implement testing framework and tests
+* Implement benchmark timing
 
 --------DONE--------------------
 
