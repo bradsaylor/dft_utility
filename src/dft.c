@@ -23,6 +23,7 @@
 #include "../include/pad_truncate.h"
 #include "../include/read_sequence.h"
 #include "../include/window.h"
+#include "../include/logs.h"
 
 int main(int argc, char *argv[]) {
   ProgramConfig program_config = {.MAX_INPUT = 1024, .output_dir = "./output/"};
@@ -46,10 +47,10 @@ int main(int argc, char *argv[]) {
     return -1;
   }
 
-  // Determine length of output sequence
-  printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu\n",
-         input_length * sizeof(double complex), input_length);
+//  printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu\n",
+ //        input_length * sizeof(double complex), input_length);
 
+  // Determine length of output sequence
   output_length = set_dft_length(input_length, &cli_config, &output_signal);
   if (!output_length) {
     printf("Could not set output length\n");

@@ -38,7 +38,7 @@ int read_sequence(const char *filename, double complex **data_out,
   }
 
   log_out(LOG_INFO, "Input file read successfully.");
-
+  log_out(LOG_DEBUG, "Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu", *len_out * sizeof(double complex), len_out);
   return 0;
 }
 

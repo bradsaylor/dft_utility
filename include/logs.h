@@ -14,6 +14,6 @@ extern LogType log_level;
 
 int log_out(LogType log_type, const char *format, ...);
 
-int set_logtype(LogType log_type);
+int set_log_level(LogType log_level);
 
 #endif  // LOGS_H

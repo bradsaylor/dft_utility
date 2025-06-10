@@ -36,13 +36,37 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
 
   if (argc > 3) {
     for (int i = 3; i < argc; i++) {
-      if (!strcmp("--output-mode", argv[i])) {
+      if (!strcmp("--log-level", argv[i])) {
+        if (argc < i + 1) {
+          printf("\nMissing log level argument\n");
+          print_usage_help();
+          return 1;
+        }
+        if (!strcmp("all", argv[i + 1])) {
+          set_log_level(LOG_ALL);
+        } else if (!strcmp("debug", argv[i + 1])) {
+          set_log_level(LOG_DEBUG);
+        } else if (!strcmp("info", argv[i + 1])) {
+          set_log_level(LOG_INFO);
+        } else if (!strcmp("warning", argv[i + 1])) {
+          set_log_level(LOG_WARNING);
+        } else if (!strcmp("error", argv[i + 1])) {
+          set_log_level(LOG_ERROR);
+        } else if (!strcmp("none", argv[i + 1])) {
+          set_log_level(LOG_NONE);
+        } else {
+          printf("\nInvalid log level format: %s\n", argv[i + 1]);
+          print_usage_help();
+          return 1;
+        }
+        i++;
+
+      } else if (!strcmp("--output-mode", argv[i])) {
         if (argc < i + 1) {
           printf("\nMissing output argument\n");
           print_usage_help();
           return 1;
         }
-
         if (!strcmp("csv", argv[i + 1])) {
           cli_config->output_mode = OUTPUT_CSV;
         } else if (!strcmp("txt", argv[i + 1])) {
@@ -55,13 +79,13 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
           return 1;
         }
         i++;
+
       } else if (!strcmp("--alg-mode", argv[i])) {
         if (argc < i + 1) {
           printf("\nMissing algorithm argument\n");
           print_usage_help();
           return 1;
         }
-
         if (!strcmp("direct", argv[i + 1])) {
           cli_config->algorithm_mode = ALG_MODE_DIRECT;
         } else if (!strcmp("fft", argv[i + 1])) {
@@ -83,7 +107,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
           print_usage_help();
           return 1;
         }
-
         if (!strcmp("han", argv[i + 1])) {
           cli_config->window_mode = WINDOW_HANNING;
         } else if (!strcmp("ham", argv[i + 1])) {
@@ -168,6 +191,13 @@ int print_usage_help() {
   printf("      ksr:\tApply Kaiser window\n");
   printf("      bhs:\tApply Blackman-Harris window\n");
   printf("      flt:\tApply flat top window\n\n");
+  printf("  --log-level\n");
+  printf("      all:\tSet log level to ALL\n");
+  printf("      debug:\tSet log level to DEBUG\n");
+  printf("      info:\tSet log level to INFO\n");
+  printf("      warning:\tSet log level to WARNING\n");
+  printf("      error:\tSet log level to ERROR\n");
+  printf("      none:\tSet log level to NONE\n\n");
   printf("  --window-parameter\n");
   printf(
       "      xxx:\t[double] Beta parameter for Kaiser window, "
