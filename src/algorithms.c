@@ -1,6 +1,5 @@
 #include "../include/algorithms.h"
 
-#include <math.h>
 #include <stdio.h>
 
 #include "../include/direct_dft.h"

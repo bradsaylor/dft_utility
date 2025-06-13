@@ -60,7 +60,7 @@ typedef struct {
   int write_meta;
   size_t requested_length;
   int truncate_ok;
-
+  int run_benchmark;
 } CliConfiguration;
 
 #endif  // DFT_H

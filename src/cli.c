@@ -159,6 +159,9 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       } else if (!strcmp("--truncate-ok", argv[i])) {
         cli_config->truncate_ok = true;
 
+      } else if (!strcmp("--run-benchmark", argv[i])) {
+        cli_config->run_benchmark = 1;
+
       } else {
         printf("\nInvalid option: %s\n", argv[i]);
         print_usage_help();

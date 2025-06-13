@@ -16,6 +16,7 @@
 #include <string.h>
 
 #include "../include/algorithms.h"
+#include "../include/benchmark.h"
 #include "../include/cli.h"
 #include "../include/dft_length.h"
 #include "../include/meta_file.h"
@@ -23,11 +24,11 @@
 #include "../include/pad_truncate.h"
 #include "../include/read_sequence.h"
 #include "../include/window.h"
-#include "../include/logs.h"
 
 int main(int argc, char *argv[]) {
   ProgramConfig program_config = {.MAX_INPUT = 1024, .output_dir = "./output/"};
   CliConfiguration cli_config = {0};
+  benchmarkResults benchmark_results = {0};
   size_t input_length = 0;
   size_t output_length = 0;
   int return_ok = 0;
@@ -46,9 +47,6 @@ int main(int argc, char *argv[]) {
     printf("Could not read input sequence\n");
     return -1;
   }
-
-//  printf("Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu\n",
- //        input_length * sizeof(double complex), input_length);
 
   // Determine length of output sequence
   output_length = set_dft_length(input_length, &cli_config, &output_signal);
@@ -73,8 +71,16 @@ int main(int argc, char *argv[]) {
   }
 
   // Compute DFT
-  dft_algorithms(cli_config.algorithm_mode, output_length, input_length,
-                 input_signal, &output_signal);
+  if (cli_config.run_benchmark) {
+    benchmark(cli_config.algorithm_mode, output_length, input_length,
+              input_signal, &output_signal, 100, &benchmark_results);
+    printf("Stats(us):\nMean: %f\nMax:  %f\nMin:  %f\nStd-dev:  %f\n",
+           benchmark_results.mean / 1000, benchmark_results.max / 1000,
+           benchmark_results.min / 1000, benchmark_results.std_dev / 1000);
+  } else {
+    dft_algorithms(cli_config.algorithm_mode, output_length, input_length,
+                   input_signal, &output_signal);
+  }
 
   // Output to file
   //
