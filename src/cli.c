@@ -39,7 +39,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       if (!strcmp("--log-level", argv[i])) {
         if (argc < i + 1) {
           printf("\nMissing log level argument\n");
-          print_usage_help();
           return 1;
         }
         if (!strcmp("all", argv[i + 1])) {
@@ -56,7 +55,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
           set_log_level(LOG_NONE);
         } else {
           printf("\nInvalid log level format: %s\n", argv[i + 1]);
-          print_usage_help();
           return 1;
         }
         i++;
@@ -64,7 +62,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       } else if (!strcmp("--output-mode", argv[i])) {
         if (argc < i + 1) {
           printf("\nMissing output argument\n");
-          print_usage_help();
           return 1;
         }
         if (!strcmp("csv", argv[i + 1])) {
@@ -75,7 +72,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
           cli_config->output_mode = OUTPUT_BIN;
         } else {
           printf("\nInvalid output format: %s\n", argv[i + 1]);
-          print_usage_help();
           return 1;
         }
         i++;
@@ -83,7 +79,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       } else if (!strcmp("--alg-mode", argv[i])) {
         if (argc < i + 1) {
           printf("\nMissing algorithm argument\n");
-          print_usage_help();
           return 1;
         }
         if (!strcmp("direct", argv[i + 1])) {
@@ -96,7 +91,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
           cli_config->algorithm_mode = ALG_MODE_GOERTZEL;
         } else {
           printf("\nInvalid algorithm type: %s\n", argv[i + 1]);
-          print_usage_help();
           return 1;
         }
         i++;
@@ -104,7 +98,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       } else if (!strcmp("--window-mode", argv[i])) {
         if (argc < i + 1) {
           printf("Missing window argument\n");
-          print_usage_help();
           return 1;
         }
         if (!strcmp("han", argv[i + 1])) {
@@ -119,7 +112,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
           cli_config->window_mode = WINDOW_FLAT_TOP;
         } else {
           printf("Invalid window type: %s\n", argv[i + 1]);
-          print_usage_help();
           return 1;
         }
         i++;
@@ -127,7 +119,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       } else if (!strcmp("--window-parameter", argv[i])) {
         if (argc < i + 1) {
           printf("Missing window parameter\n");
-          print_usage_help();
           return 1;
         }
         cli_config->window_param = atof(argv[i + 1]);
@@ -136,7 +127,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
       } else if (!strcmp("--fs", argv[i])) {
         if (argc < i + 1) {
           printf("Missing sampling frequency parameter\n");
-          print_usage_help();
           return 1;
         }
         cli_config->sampling_freq = atof(argv[i + 1]);
@@ -148,6 +138,14 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
           return 1;
         }
         cli_config->requested_length = atoi(argv[i + 1]);
+        i++;
+
+      } else if (!strcmp("--benchmark-iterations", argv[i])) {
+        if (argc < i + 1) {
+          printf("Missing benchmark iterations parameter\n");
+          return 1;
+        }
+        cli_config->benchmark_iterations = atoi(argv[i + 1]);
         i++;
 
       } else if (!strcmp("--output-source", argv[i])) {
@@ -164,7 +162,6 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
 
       } else {
         printf("\nInvalid option: %s\n", argv[i]);
-        print_usage_help();
         return 1;
       }
     }

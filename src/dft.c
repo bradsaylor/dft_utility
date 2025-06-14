@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
   // Read and parse command line input
   if (parse_cli(argc, argv, &cli_config)) {
     printf("Could not parse command line input");
+    print_usage_help();
     return 1;
   }
 
@@ -73,10 +74,14 @@ int main(int argc, char *argv[]) {
   // Compute DFT
   if (cli_config.run_benchmark) {
     benchmark(cli_config.algorithm_mode, output_length, input_length,
-              input_signal, &output_signal, 100, &benchmark_results);
-    printf("Stats(us):\nMean: %f\nMax:  %f\nMin:  %f\nStd-dev:  %f\n",
-           benchmark_results.mean / 1000, benchmark_results.max / 1000,
-           benchmark_results.min / 1000, benchmark_results.std_dev / 1000);
+              input_signal, &output_signal, cli_config.benchmark_iterations,
+              &benchmark_results);
+    printf(
+        "Stats(us):\nIterations:  %lu\nMean: %f\nMax:  %f\nMin:  %f\nStd-dev:  "
+        "%f\n",
+        benchmark_results.num_iter, benchmark_results.mean / 1000,
+        benchmark_results.max / 1000, benchmark_results.min / 1000,
+        benchmark_results.std_dev / 1000);
   } else {
     dft_algorithms(cli_config.algorithm_mode, output_length, input_length,
                    input_signal, &output_signal);

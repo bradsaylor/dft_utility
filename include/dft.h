@@ -61,6 +61,7 @@ typedef struct {
   size_t requested_length;
   int truncate_ok;
   int run_benchmark;
+  size_t benchmark_iterations;
 } CliConfiguration;
 
 #endif  // DFT_H

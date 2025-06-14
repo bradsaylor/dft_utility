@@ -7,6 +7,7 @@
 #include <time.h>
 
 #include "../include/algorithms.h"
+#include "../include/logs.h"
 
 #define NS_PER_SEC 1000000000ULL
 size_t warmup_iter = 10;
@@ -17,6 +18,13 @@ int calc_stats(uint64_t *results_array, benchmarkResults *benchmark_results,
 int benchmark(algorithmMode alg_mode, size_t output_length, size_t input_length,
               double complex *input_signal, double complex **output_signal,
               size_t num_iter, benchmarkResults *benchmark_results) {
+  if (num_iter == 0) {
+    num_iter = 100;
+    printf("Number of benchmark iterations set to default value, n=%lu.\n",
+           num_iter);
+    printf("Set iteration number with --benchmark-iterations [x] option\n");
+  }
+  log_out(LOG_INFO, "Running bench mark with n=%d iterations.", num_iter);
   uint64_t *results_array = calloc(num_iter, sizeof(uint64_t));
   if (!results_array) {
     printf("Could not calloc results array for benchmarking.\n");
@@ -49,6 +57,7 @@ int benchmark(algorithmMode alg_mode, size_t output_length, size_t input_length,
 
   free(results_array);
 
+  log_out(LOG_INFO, "Benchmark compelte.");
   return 0;
 }
 
@@ -78,6 +87,7 @@ int calc_stats(uint64_t *results_array, benchmarkResults *benchmark_results,
   }
   std_dev = sqrt((double)var_sum / (num_iter - 1));
 
+  benchmark_results->num_iter = num_iter;
   benchmark_results->max = max;
   benchmark_results->min = min;
   benchmark_results->mean = mean;

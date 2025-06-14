@@ -6,6 +6,7 @@
 #include "dft.h"
 
 typedef struct {
+  size_t num_iter;
   double mean;
   double min;
   double max;
