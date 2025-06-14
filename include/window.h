@@ -19,7 +19,7 @@
  * @param window_param User supplied windowing parameter
  * @return int
  */
-int window(double complex *signal, size_t signal_length, windowMode window_mode,
+int window(double complex* signal, size_t signal_length, windowMode window_mode,
            double window_param);
 
 #endif  // WINDOW_H

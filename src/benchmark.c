@@ -12,12 +12,12 @@
 #define NS_PER_SEC 1000000000ULL
 size_t warmup_iter = 10;
 
-int calc_stats(uint64_t *results_array, benchmarkResults *benchmark_results,
+int calc_stats(uint64_t* results_array, benchmarkResults* benchmark_results,
                size_t num_iter);
 
 int benchmark(algorithmMode alg_mode, size_t output_length, size_t input_length,
-              double complex *input_signal, double complex **output_signal,
-              size_t num_iter, benchmarkResults *benchmark_results) {
+              double complex* input_signal, double complex** output_signal,
+              size_t num_iter, benchmarkResults* benchmark_results) {
   if (num_iter == 0) {
     num_iter = 100;
     printf("Number of benchmark iterations set to default value, n=%lu.\n",
@@ -25,7 +25,7 @@ int benchmark(algorithmMode alg_mode, size_t output_length, size_t input_length,
     printf("Set iteration number with --benchmark-iterations [x] option\n");
   }
   log_out(LOG_INFO, "Running bench mark with n=%d iterations.", num_iter);
-  uint64_t *results_array = calloc(num_iter, sizeof(uint64_t));
+  uint64_t* results_array = calloc(num_iter, sizeof(uint64_t));
   if (!results_array) {
     printf("Could not calloc results array for benchmarking.\n");
     return -1;
@@ -40,7 +40,6 @@ int benchmark(algorithmMode alg_mode, size_t output_length, size_t input_length,
   }
 
   // Perform benchmark calls
-
   for (size_t i = 0; i < num_iter; i++) {
     clock_gettime(CLOCK_MONOTONIC, &start);
 
@@ -50,8 +49,8 @@ int benchmark(algorithmMode alg_mode, size_t output_length, size_t input_length,
     clock_gettime(CLOCK_MONOTONIC, &end);
 
     // Explicitly use 64bit type for 1E9
-    results_array[i] = (end.tv_sec - start.tv_sec) * NS_PER_SEC +
-                       (end.tv_nsec - start.tv_nsec);
+    results_array[i] =
+      (end.tv_sec - start.tv_sec) * NS_PER_SEC + (end.tv_nsec - start.tv_nsec);
   }
   calc_stats(results_array, benchmark_results, num_iter);
 
@@ -61,7 +60,7 @@ int benchmark(algorithmMode alg_mode, size_t output_length, size_t input_length,
   return 0;
 }
 
-int calc_stats(uint64_t *results_array, benchmarkResults *benchmark_results,
+int calc_stats(uint64_t* results_array, benchmarkResults* benchmark_results,
                size_t num_iter) {
   double mean = 0;
   double std_dev = 0;

@@ -13,7 +13,7 @@
  * @param cli_config  Struct of user settings
  * @return int
  */
-int set_dft_length(size_t input_length, CliConfiguration *cli_config,
-                   double complex **output_signal);
+int set_dft_length(size_t input_length, CliConfiguration* cli_config,
+                   double complex** output_signal);
 
 #endif  // DFT_LENGTH_H

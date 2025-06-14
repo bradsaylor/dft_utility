@@ -23,7 +23,7 @@
  */
 int print_usage_help();
 
-int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
+int parse_cli(int argc, char* argv[], CliConfiguration* cli_config) {
   log_out(LOG_INFO, "Parsing CLI input.");
 
   if (argc < 3) {
@@ -174,7 +174,7 @@ int parse_cli(int argc, char *argv[], CliConfiguration *cli_config) {
 int print_usage_help() {
   printf("\nUsage: ");
   printf(
-      "./dft [../path/to/input/file] [output filename] --option value ...\n\n");
+    "./dft [../path/to/input/file] [output filename] --option value ...\n\n");
   printf("Options:\n");
   printf("  --output-mode\n");
   printf("      csv:\tOutput in CSV format\n");
@@ -200,8 +200,8 @@ int print_usage_help() {
   printf("      none:\tSet log level to NONE\n\n");
   printf("  --window-parameter\n");
   printf(
-      "      xxx:\t[double] Beta parameter for Kaiser window, "
-      "default=8.60\n\n");
+    "      xxx:\t[double] Beta parameter for Kaiser window, "
+    "default=8.60\n\n");
   printf("  --fs\n");
   printf("      xxx:\t[int] Sampling frequency\n\n");
   printf("  --dft-length\n");
@@ -210,12 +210,12 @@ int print_usage_help() {
   printf("      \t\tAlso write source file in specified mode\n\n");
   printf("  --write-meta\n");
   printf(
-      "      \t\tOutput accompanying .json file with configuration "
-      "details\n\n");
+    "      \t\tOutput accompanying .json file with configuration "
+    "details\n\n");
   printf("  --truncate-ok\n");
   printf(
-      "      \t\tAllow truncation of input to satisfy requested dft "
-      "length\n\n");
+    "      \t\tAllow truncation of input to satisfy requested dft "
+    "length\n\n");
 
   return 0;
 }

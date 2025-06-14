@@ -11,7 +11,7 @@
  * @param signal_length Number of samples in signal
  * @return int
  */
-int window_hanning(double complex *signal, size_t signal_length);
+int window_hanning(double complex* signal, size_t signal_length);
 
 /**
  * @brief Applies Hamming window
@@ -20,7 +20,7 @@ int window_hanning(double complex *signal, size_t signal_length);
  * @param signal_length Number of samples in signal
  * @return int
  */
-int window_hamming(double complex *signal, size_t signal_length);
+int window_hamming(double complex* signal, size_t signal_length);
 
 /**
  * @brief Applies Kaiser window
@@ -30,7 +30,7 @@ int window_hamming(double complex *signal, size_t signal_length);
  * @param beta User supplied window parameter
  * @return int
  */
-int window_kaiser(double complex *signal, size_t signal_length, double beta);
+int window_kaiser(double complex* signal, size_t signal_length, double beta);
 
 /**
  * @brief Applies Blackman-Harris window
@@ -39,7 +39,7 @@ int window_kaiser(double complex *signal, size_t signal_length, double beta);
  * @param signal_length Number of samples in signal
  * @return int
  */
-int window_blackman_harris(double complex *signal, size_t signal_length);
+int window_blackman_harris(double complex* signal, size_t signal_length);
 
 /**
  * @brief Applies flat top window
@@ -48,7 +48,7 @@ int window_blackman_harris(double complex *signal, size_t signal_length);
  * @param signal_length Number of samples in signal
  * @return int
  */
-int window_flat_top(double complex *signal, size_t signal_length);
+int window_flat_top(double complex* signal, size_t signal_length);
 
 /**
  * @brief Utility function for implementing types of raised cosine window
@@ -59,8 +59,8 @@ int window_flat_top(double complex *signal, size_t signal_length);
  * @param param2 Raised cosine sinusoid parameter
  * @return int
  */
-int window_raised_cosine(double complex *signal, size_t signal_length,
-                         double *coeffs);
+int window_raised_cosine(double complex* signal, size_t signal_length,
+                         double* coeffs);
 
 /**
  * @brief Calculate modified Bessel function of the first kind
@@ -71,7 +71,7 @@ int window_raised_cosine(double complex *signal, size_t signal_length,
  */
 int bessel_I0(double x);
 
-int window(double complex *signal, size_t signal_length, windowMode window_mode,
+int window(double complex* signal, size_t signal_length, windowMode window_mode,
            double window_param) {
   switch (window_mode) {
     case WINDOW_HANNING:
@@ -97,28 +97,28 @@ int window(double complex *signal, size_t signal_length, windowMode window_mode,
   return 0;
 }
 
-int window_hanning(double complex *signal, size_t signal_length) {
-  log_out(LOG_INFO, "Applying Hanning window.");  
+int window_hanning(double complex* signal, size_t signal_length) {
+  log_out(LOG_INFO, "Applying Hanning window.");
   double raised_cosine_coeffs[5] = {0.5, -0.5, 0, 0, 0};
   window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
 
-int window_hamming(double complex *signal, size_t signal_length) {
+int window_hamming(double complex* signal, size_t signal_length) {
   log_out(LOG_INFO, "Applying Hamming window.");
   double raised_cosine_coeffs[5] = {0.54, -0.46, 0, 0, 0};
   window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
 
-int window_blackman_harris(double complex *signal, size_t signal_length) {
+int window_blackman_harris(double complex* signal, size_t signal_length) {
   log_out(LOG_INFO, "Applying Blackman-Harris window");
   double raised_cosine_coeffs[5] = {0.35875, -0.48829, 0.14128, -0.01168, 0};
   window_raised_cosine(signal, signal_length, raised_cosine_coeffs);
   return 0;
 }
 
-int window_flat_top(double complex *signal, size_t signal_length) {
+int window_flat_top(double complex* signal, size_t signal_length) {
   log_out(LOG_INFO, "Applying flat top window.");
   double raised_cosine_coeffs[5] = {0.21557895, -.41663158, 0.277263158,
                                     -.083578947, 0.006947368};
@@ -126,8 +126,8 @@ int window_flat_top(double complex *signal, size_t signal_length) {
   return 0;
 }
 
-int window_raised_cosine(double complex *signal, size_t signal_length,
-                         double *coeffs) {
+int window_raised_cosine(double complex* signal, size_t signal_length,
+                         double* coeffs) {
   for (int i = 0; i < signal_length; i++) {
     double sum = 0;
     for (int j = 0; j < 5; j++) {
@@ -138,7 +138,7 @@ int window_raised_cosine(double complex *signal, size_t signal_length,
   return 0;
 };
 
-int window_kaiser(double complex *signal, size_t signal_length, double beta) {
+int window_kaiser(double complex* signal, size_t signal_length, double beta) {
   log_out(LOG_INFO, "Applying Kaiser window.");
   // If no beta requested set value to 8.6 for ~100dB side lobe attenuation
   if (beta == 0) {

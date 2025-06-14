@@ -3,17 +3,17 @@
 #include <stdio.h>
 #include <string.h>
 
-int write_meta_file(ProgramConfig *program_config, CliConfiguration *cli_config,
+int write_meta_file(ProgramConfig* program_config, CliConfiguration* cli_config,
                     int output_length) {
-  char *algorithm_list[] = {"unknown", "direct", "fft", "ifft", "goertzl"};
-  char *window_list[] = {"unknown", "hanning",         "hamming",
+  char* algorithm_list[] = {"unknown", "direct", "fft", "ifft", "goertzl"};
+  char* window_list[] = {"unknown", "hanning",         "hamming",
                          "kaiser",  "blackman-harris", "flat-top"};
-  char *output_type_list[] = {"unknown", "txt", "csv", "bin"};
+  char* output_type_list[] = {"unknown", "txt", "csv", "bin"};
   char output_path[50] = {0};
   strcat(output_path, program_config->output_dir);
   strcat(output_path, "meta_");
   strcat(output_path, cli_config->output_file_name);
-  char *token = NULL;
+  char* token = NULL;
   token = strtok(output_path, ".");
   if (!token) {
     printf("Could not rename meta file\n");
@@ -21,7 +21,7 @@ int write_meta_file(ProgramConfig *program_config, CliConfiguration *cli_config,
   }
   strcat(token, ".json\0");
 
-  FILE *fp = fopen(output_path, "w");
+  FILE* fp = fopen(output_path, "w");
   if (!fp) {
     printf("Unable to open output file\n");
     return 1;

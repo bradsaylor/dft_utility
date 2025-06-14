@@ -25,15 +25,15 @@
 #include "../include/read_sequence.h"
 #include "../include/window.h"
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
   ProgramConfig program_config = {.MAX_INPUT = 1024, .output_dir = "./output/"};
   CliConfiguration cli_config = {0};
   benchmarkResults benchmark_results = {0};
   size_t input_length = 0;
   size_t output_length = 0;
   int return_ok = 0;
-  complex double *input_signal = NULL;
-  complex double *output_signal = NULL;
+  complex double* input_signal = NULL;
+  complex double* output_signal = NULL;
 
   // Read and parse command line input
   if (parse_cli(argc, argv, &cli_config)) {
@@ -77,11 +77,11 @@ int main(int argc, char *argv[]) {
               input_signal, &output_signal, cli_config.benchmark_iterations,
               &benchmark_results);
     printf(
-        "Stats(us):\nIterations:  %lu\nMean: %f\nMax:  %f\nMin:  %f\nStd-dev:  "
-        "%f\n",
-        benchmark_results.num_iter, benchmark_results.mean / 1000,
-        benchmark_results.max / 1000, benchmark_results.min / 1000,
-        benchmark_results.std_dev / 1000);
+      "Stats(us):\nIterations:  %lu\nMean: %f\nMax:  %f\nMin:  %f\nStd-dev:  "
+      "%f\n",
+      benchmark_results.num_iter, benchmark_results.mean / 1000,
+      benchmark_results.max / 1000, benchmark_results.min / 1000,
+      benchmark_results.std_dev / 1000);
   } else {
     dft_algorithms(cli_config.algorithm_mode, output_length, input_length,
                    input_signal, &output_signal);

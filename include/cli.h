@@ -11,7 +11,7 @@
  * @param config Program configuration structure
  * @return int 0 if successful 1 otherwise
  */
-int parse_cli(int argc, char *argv[], CliConfiguration *cli_config);
+int parse_cli(int argc, char* argv[], CliConfiguration* cli_config);
 int print_usage_help();
 
 #endif  // CLI_H

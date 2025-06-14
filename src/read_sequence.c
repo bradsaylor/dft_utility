@@ -6,18 +6,18 @@
 
 #include "../include/logs.h"
 
-int read_complex_text(const char *filename, double complex **data_out,
-                      size_t *len_out, const size_t MAX_INPUT);
+int read_complex_text(const char* filename, double complex** data_out,
+                      size_t* len_out, const size_t MAX_INPUT);
 
-int read_complex_csv(const char *filename, double complex **data_out,
-                     size_t *len_out, const size_t MAX_INPUT);
+int read_complex_csv(const char* filename, double complex** data_out,
+                     size_t* len_out, const size_t MAX_INPUT);
 
-int read_complex_bin(const char *filename, double complex **data_out,
-                     size_t *len_out, const size_t MAX_INPUT);
+int read_complex_bin(const char* filename, double complex** data_out,
+                     size_t* len_out, const size_t MAX_INPUT);
 
-int read_sequence(const char *filename, double complex **data_out,
-                  size_t *len_out, const size_t MAX_INPUT) {
-  const char *ext = strrchr(filename, '.');
+int read_sequence(const char* filename, double complex** data_out,
+                  size_t* len_out, const size_t MAX_INPUT) {
+  const char* ext = strrchr(filename, '.');
   if (!ext) return -1;
 
   if (strcmp(ext, ".bin") == 0) {
@@ -38,27 +38,28 @@ int read_sequence(const char *filename, double complex **data_out,
   }
 
   log_out(LOG_INFO, "Input file read successfully.");
-  log_out(LOG_DEBUG, "Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu", *len_out * sizeof(double complex), len_out);
+  log_out(LOG_DEBUG, "Size of sequence: \n\tbytes:\t\t %zu \n\telements:\t %lu",
+          *len_out * sizeof(double complex), len_out);
   return 0;
 }
 
-int read_complex_text(const char *filename, double complex **data_out,
-                      size_t *len_out, const size_t MAX_INPUT) {
+int read_complex_text(const char* filename, double complex** data_out,
+                      size_t* len_out, const size_t MAX_INPUT) {
   log_out(LOG_INFO, "Reading %s.", filename);
-  FILE *file = fopen(filename, "r");
+  FILE* file = fopen(filename, "r");
   if (!file) return -1;
 
   size_t cap = 1024;
   size_t count = 0;
   double re, im;
 
-  double complex *data = malloc(cap * sizeof(double complex));
+  double complex* data = malloc(cap * sizeof(double complex));
   if (!data) return -1;
 
   while (fscanf(file, "%lf%lfj", &re, &im) == 2) {
     if (count == cap) {
       cap *= 2;
-      double complex *temp = realloc(data, cap * sizeof(double complex));
+      double complex* temp = realloc(data, cap * sizeof(double complex));
       if (!temp) {
         free(data);
         fclose(file);
@@ -75,7 +76,7 @@ int read_complex_text(const char *filename, double complex **data_out,
 
   fclose(file);
 
-  double complex *trimmed = realloc(data, count * sizeof(double complex));
+  double complex* trimmed = realloc(data, count * sizeof(double complex));
   if (trimmed) data = trimmed;
 
   *data_out = data;
@@ -83,17 +84,17 @@ int read_complex_text(const char *filename, double complex **data_out,
   return 0;
 }
 
-int read_complex_csv(const char *filename, double complex **data_out,
-                     size_t *len_out, const size_t MAX_INPUT) {
+int read_complex_csv(const char* filename, double complex** data_out,
+                     size_t* len_out, const size_t MAX_INPUT) {
   log_out(LOG_INFO, "Reading %s.", filename);
-  FILE *file = fopen(filename, "r");
+  FILE* file = fopen(filename, "r");
   if (!file) return -1;
 
   size_t cap = 1024;
   size_t count = 0;
   double re, im;
 
-  double complex *data = malloc(cap * sizeof(double complex));
+  double complex* data = malloc(cap * sizeof(double complex));
   if (!data) {
     fclose(file);
     return -1;
@@ -102,7 +103,7 @@ int read_complex_csv(const char *filename, double complex **data_out,
   while (fscanf(file, "%lf,%lf", &re, &im) == 2) {
     if (count == cap) {
       cap *= 2;
-      double complex *temp = realloc(data, cap * sizeof(double complex));
+      double complex* temp = realloc(data, cap * sizeof(double complex));
       if (!temp) {
         free(data);
         fclose(file);
@@ -120,7 +121,7 @@ int read_complex_csv(const char *filename, double complex **data_out,
 
   fclose(file);
 
-  double complex *trimmed = realloc(data, count * sizeof(double complex));
+  double complex* trimmed = realloc(data, count * sizeof(double complex));
   if (trimmed) data = trimmed;
 
   *data_out = data;
@@ -128,10 +129,10 @@ int read_complex_csv(const char *filename, double complex **data_out,
   return 0;
 }
 
-int read_complex_bin(const char *filename, double complex **data_out,
-                     size_t *len_out, const size_t MAX_INPUT) {
+int read_complex_bin(const char* filename, double complex** data_out,
+                     size_t* len_out, const size_t MAX_INPUT) {
   log_out(LOG_INFO, "Reading %s.", filename);
-  FILE *file = fopen(filename, "rb");
+  FILE* file = fopen(filename, "rb");
   if (!file) return -1;
 
   fseek(file, 0, SEEK_END);
@@ -148,7 +149,7 @@ int read_complex_bin(const char *filename, double complex **data_out,
     return -1;
   }
 
-  double complex *data = malloc(count * sizeof(double complex));
+  double complex* data = malloc(count * sizeof(double complex));
   if (!data) {
     fclose(file);
     return -1;

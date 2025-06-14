@@ -13,7 +13,7 @@
  * @param new_length Length of allocated sequence
  * @return double* Returns allocated sequence
  */
-double complex *calloc_output_pow2(size_t N, size_t *new_length);
+double complex* calloc_output_pow2(size_t N, size_t* new_length);
 
 /**
  * @brief Allocates output array for DFT results,
@@ -22,11 +22,10 @@ double complex *calloc_output_pow2(size_t N, size_t *new_length);
  * @param N Length of input sequence
  * @return double* Returns allocated sequence
  */
-double complex *calloc_output_N(size_t N);
+double complex* calloc_output_N(size_t N);
 
-int set_dft_length(size_t input_length, CliConfiguration *cli_config,
-                   double complex **output_signal) {
-  
+int set_dft_length(size_t input_length, CliConfiguration* cli_config,
+                   double complex** output_signal) {
   log_out(LOG_INFO, "Setting DFT length.");
   size_t output_length = 0;
   algorithmMode alg_mode = cli_config->algorithm_mode;
@@ -36,9 +35,9 @@ int set_dft_length(size_t input_length, CliConfiguration *cli_config,
   if (requested_length) {
     if ((input_length > requested_length) && !trunc_ok) {
       printf(
-          "Input legth is longer than requested dft length, set --truncate-ok "
-          "to "
-          "bypass\n");
+        "Input legth is longer than requested dft length, set --truncate-ok "
+        "to "
+        "bypass\n");
       return 0;
     }
 
@@ -63,11 +62,11 @@ int set_dft_length(size_t input_length, CliConfiguration *cli_config,
       *output_signal = calloc_output_N(output_length);
     }
   }
-log_out(LOG_INFO, "DFT output length determined successfully.");
+  log_out(LOG_INFO, "DFT output length determined successfully.");
   return output_length;
 }
 
-double complex *calloc_output_pow2(size_t N, size_t *new_length) {
+double complex* calloc_output_pow2(size_t N, size_t* new_length) {
   double log2N = log2(N);
   int v = 0;
 
@@ -77,11 +76,11 @@ double complex *calloc_output_pow2(size_t N, size_t *new_length) {
     v = (int)log2N + 1;
   }
   *new_length = (int)pow(2, v);
-  double complex *signal_out = calloc((int)pow(2, v), sizeof(double complex));
+  double complex* signal_out = calloc((int)pow(2, v), sizeof(double complex));
   return signal_out;
 }
 
-double complex *calloc_output_N(size_t N) {
-  double complex *signal_out = calloc(N, sizeof(double complex));
+double complex* calloc_output_N(size_t N) {
+  double complex* signal_out = calloc(N, sizeof(double complex));
   return signal_out;
 }

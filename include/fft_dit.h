@@ -11,7 +11,7 @@
  * @param N
  * @return int
  */
-int fft_dit(double complex *signal, double complex *signal_out, int N);
+int fft_dit(double complex* signal, double complex* signal_out, int N);
 
 /**
  * @brief Calculates one decimation step of FFT algorithm
@@ -22,7 +22,7 @@ int fft_dit(double complex *signal, double complex *signal_out, int N);
  * @param N Size of output sequence
  * @return int
  */
-int calc_decimation_step(double complex *sequence, int num_decims,
+int calc_decimation_step(double complex* sequence, int num_decims,
                          int decim_step, int N);
 
 /**
@@ -34,8 +34,8 @@ int calc_decimation_step(double complex *sequence, int num_decims,
  * @param WN_index Lookup index for twiddle factor
  * @return int
  */
-int calc_butterfly(double complex *btrfly_top_element,
-                   double complex *btrfly_bottom_element, int num_decims,
+int calc_butterfly(double complex* btrfly_top_element,
+                   double complex* btrfly_bottom_element, int num_decims,
                    int WN_index);
 
 #endif  // FFT_DIT_H

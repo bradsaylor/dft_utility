@@ -10,7 +10,7 @@
  */
 typedef struct {
   const size_t MAX_INPUT;
-  const char *output_dir;
+  const char* output_dir;
 } ProgramConfig;
 
 /**

@@ -6,14 +6,14 @@
 
 LogType log_level = LOG_NONE;
 
-int log_out(LogType log_type, const char *format, ...) {
+int log_out(LogType log_type, const char* format, ...) {
   // Only log messages at or above the current Log Level
   if (log_type < log_level) return 0;
 
   // Get timestamp
   char time_str[50];
   time_t now = time(NULL);
-  struct tm *t = localtime(&now);
+  struct tm* t = localtime(&now);
   strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", t);
 
   // Format the user message
@@ -24,7 +24,7 @@ int log_out(LogType log_type, const char *format, ...) {
   va_end(args);
 
   // Get string for Log type
-  const char *type_str = "";
+  const char* type_str = "";
   switch (log_type) {
     case LOG_ERROR:
       type_str = "ERROR";
@@ -51,7 +51,8 @@ int log_out(LogType log_type, const char *format, ...) {
 
 int set_log_level(LogType new_log_level) {
   log_level = new_log_level;
-  char *log_level_strs[6] = {"ALL", "DEBUG", "INFO", "WARNING", "ERORR", "NONE"};
-  log_out(LOG_DEBUG, "Log level set to %s", log_level_strs[new_log_level]); 
+  char* log_level_strs[6] = {"ALL",     "DEBUG", "INFO",
+                             "WARNING", "ERORR", "NONE"};
+  log_out(LOG_DEBUG, "Log level set to %s", log_level_strs[new_log_level]);
   return 0;
 }

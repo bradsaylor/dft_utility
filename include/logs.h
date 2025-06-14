@@ -12,7 +12,7 @@ typedef enum {
 
 extern LogType log_level;
 
-int log_out(LogType log_type, const char *format, ...);
+int log_out(LogType log_type, const char* format, ...);
 
 int set_log_level(LogType log_level);
 

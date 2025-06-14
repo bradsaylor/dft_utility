@@ -16,7 +16,7 @@
 #include "../tools/generated/include/fft_reverse_index_LUT.h"
 #include "../tools/generated/include/fft_twiddle_factor_LUT.h"
 
-int fft_dit(double complex *signal, double complex *signal_out, int N) {
+int fft_dit(double complex* signal, double complex* signal_out, int N) {
   log_out(LOG_INFO, "Applying FFT algorithm.");
   int num_decims = (int)log2(N);  // Total number of decimation steps
 
@@ -33,14 +33,14 @@ int fft_dit(double complex *signal, double complex *signal_out, int N) {
   return 0;
 }
 
-int calc_decimation_step(double complex *sequence, int num_decims,
+int calc_decimation_step(double complex* sequence, int num_decims,
                          int decim_step, int N) {
   // Length of each decimated DFT
   int decim_DFT_length = pow(2, decim_step);
   int half_decim_DFT_length = (int)(decim_DFT_length / 2);
 
   int num_decim_DFTs =
-      (int)(N / decim_DFT_length);    // number of decimated DFT's
+    (int)(N / decim_DFT_length);      // number of decimated DFT's
   int WN_step_size = num_decim_DFTs;  // twiddle factor index increment
   int btrfly_bottom_index = 0;        // indicies for butterfly calc
   int btrfly_top_index = 0;
@@ -63,8 +63,8 @@ int calc_decimation_step(double complex *sequence, int num_decims,
   return 0;
 }
 
-int calc_butterfly(double complex *btrfly_top_element,
-                   double complex *btrfly_bottom_element, int num_decims,
+int calc_butterfly(double complex* btrfly_top_element,
+                   double complex* btrfly_bottom_element, int num_decims,
                    int WN_index) {
   // Twiddle factor for this butterfuly, from lookup table
   double complex WN = twiddle_factor_LUT[num_decims][WN_index];

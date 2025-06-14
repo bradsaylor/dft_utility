@@ -14,7 +14,7 @@
 
 #include "../include/logs.h"
 
-int direct_dft(double complex *signal, double complex *signal_out, int N) {
+int direct_dft(double complex* signal, double complex* signal_out, int N) {
   log_out(LOG_INFO, "Applying direct DFT algorithm.");
   for (int k = 0; k < N; k++) {
     for (int n = 0; n < N; n++) {

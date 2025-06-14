@@ -14,7 +14,7 @@ typedef struct {
 } benchmarkResults;
 
 int benchmark(algorithmMode alg_mode, size_t output_length, size_t input_length,
-              double complex *input_signal, double complex **output_signal,
-              size_t num_iter, benchmarkResults *benchmark_results);
+              double complex* input_signal, double complex** output_signal,
+              size_t num_iter, benchmarkResults* benchmark_results);
 
 #endif  // !BENCHMARK_H
